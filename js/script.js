@@ -21820,42 +21820,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //   console.log(fig, "fig")
 
   //       }
-  let arrFag = fig.document.children[0].children;
+  let arrFag = fig.document.children[0].children[0].children;
 
-  for (let key in arrFag) {
-
-    if (arrFag.hasOwnProperty(key)) {
-
-      let reSymbol = arrFag[key].name.replace(/ /g, "-");
-      let reSymbol2 = reSymbol.replace(/[(){},.]/g, "");
-      let newDiv = document.createElement("div");
-      console.log(key, ";", arrFag[key]);
-      console.log(arrFag, ";", "arrFag");
-      // console.log(reSymbol2, "arrFag[key].name");
-      //  console.log(`${key} : ${fig[key]}`)
-
-      figElement.appendChild(newDiv);
-
-      newDiv.classList.add(`"${reSymbol2}"`);
-
-      newDiv.style.border = "1px solid red";
-
-      // console.log(
-      //   "arrFag[key].absoluteBoundingBox",
-        // arrFag[key].absoluteBoundingBox.width
-      // );
-      // console.log(arrFag[key].absoluteBoundingBox.width  === undefined, "arrFag[key].absoluteBoundingBox.width  !== undefined")
-      // if (arrFag[key].absoluteBoundingBox.width  !== undefined) {
-      //   newDiv.style.width = arrFag[key].absoluteBoundingBox.width;
-      // }
-      // if (!!arrFag[key].absoluteBoundingBox.height !== undefined) {
-      // newDiv.style.height = arrFag[key].absoluteBoundingBox.height;
-      // }
-      
-      newDiv.style.position = "absolute";
-    }
-  }
-  function foreachArr(arr) {
+  function foreachArr(arrFun) {
     // const arrMain = Array.from(arr);
     // console.log(arrMain)
     // arrMain.forEach(function (item) {
@@ -21881,8 +21848,75 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // for( let prop in chars ){
     //   console.log(arrFag[j])
     //      }
+    
+    for (let key in arrFun) {
+      if (arrFun.hasOwnProperty(key)) {
+        let reSymbol = arrFun[key].name.replace(/ /g, "-");
+        let reSymbol2 = reSymbol.replace(/[(){},.]/g, "");
+        let newDiv = document.createElement("div");
+        let newPText = document.createElement('p');
+        // console.log(arrFun.hasOwnProperty(key), "arrFun.hasOwnProperty(key)", !!arrFun[key].characters, "!!arrFun[key].characters")
+
+        // console.log(key, ";", arrFun[key]);
+        console.log(arrFun, ";", "arrFun");
+        // console.log(reSymbol2, "arrFun[key].name");
+        //  console.log(`${key} : ${fig[key]}`)
+
+        figElement.appendChild(newDiv);
+        if(!!arrFun[key].characters){
+          // console.log(arrFun[key].characters)
+          newDiv.appendChild(newPText);
+          newPText.innerHTML = arrFun[key].characters
+        }
+    
+
+        newDiv.classList.add(`${reSymbol2}`);
+
+        newDiv.style.border = "1px solid red";
+
+        // console.log(
+        //   "arrFag[key].absoluteBoundingBox",
+        // arrFag[key].absoluteBoundingBox.width
+        // );
+
+        // console.log(
+        //   !!arrFun[key].absoluteBoundingBox,
+        //   "arrFun[key].absoluteBoundingBox.width  !== undefined"
+        // );
+
+        if (!!arrFun[key].absoluteBoundingBox) {
+          let newDivTop =  arrFag[key].absoluteBoundingBox.y - 805;
+          let newDivLeft = Math.abs(arrFag[key].absoluteBoundingBox.x) - 5800;
+          let newDivTop2 =  arrFag[key].absoluteBoundingBox;
+          console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
+          // newDiv.style.width = `"${arrFag[key].absoluteBoundingBox.width}"` ;
+          newDiv.style.width = `${arrFun[key].absoluteBoundingBox.width}px`;
+          newDiv.style.height = `${arrFun[key].absoluteBoundingBox.height}px`;
+          newDiv.style.top = `${newDivTop}px`;
+          newDiv.style.left = `${newDivLeft}px`;
+          // newDiv.style.top = `${arrFag[key].absoluteBoundingBox.x}px`;
+          // newDiv.style.left = `${arrFag[key].absoluteBoundingBox.y}px`;
+          // console.log(
+          //   `${arrFun[key].absoluteBoundingBox.x}`,
+          //   "arrFun[key].absoluteBoundingBox.x",
+          //   newDiv.style.top,
+          //   "newDiv.style.top"
+          // );
+        }
+        // console.log(
+        //   arrFun[key].children,
+        //   "arrFun.children",
+        //   !!arrFun[key].children
+        // );
+        if (!!arrFun[key].children) {
+          foreachArr(arrFun[key].children);
+        }
+
+        newDiv.style.position = "absolute";
+      }
+    }
   }
   // }
   // for (let i = 0; i < 3; i++)
-  foreachArr(fig);
+  foreachArr(arrFag);
 });
