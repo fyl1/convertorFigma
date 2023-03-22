@@ -949,7 +949,10 @@ img.thumbnail {
   max-width: 61%;
   margin: 0 auto;
   text-transform: lowercase;
-  text-shadow: -0.1vw -0.1vw 0 #ABE0E7, -0.1vw -0.1vw 0 #EE0F50, -0.1vw -0.1vw 0 #ABE0E7, 0.1vw 0.1vw 0 #EE0F50;
+  text-shadow: -0.1vw -0.1vw 0 #ABE0E7,
+ -0.1vw -0.1vw 0 #EE0F50,
+ -0.1vw -0.1vw 0 #ABE0E7,
+ 0.1vw 0.1vw 0 #EE0F50;
 }
 
 .fill-color-white {
@@ -1131,7 +1134,10 @@ img.thumbnail {
   margin: 0 auto;
   color: #131313;
   text-transform: lowercase;
-  text-shadow: -0.1vw -0.1vw 0 #ABE0E7, -0.1vw -0.1vw 0 #EE0F50, -0.1vw -0.1vw 0 #ABE0E7, 0.1vw 0.1vw 0 #EE0F50;
+  text-shadow: -0.1vw -0.1vw 0 #ABE0E7,
+ -0.1vw -0.1vw 0 #EE0F50,
+ -0.1vw -0.1vw 0 #ABE0E7,
+ 0.1vw 0.1vw 0 #EE0F50;
 }
 
 .contacts a {
@@ -1140,7 +1146,10 @@ img.thumbnail {
   transition: 1s;
   -webkit-text-stroke: 0.1vw #131313;
   -webkit-text-fill-color: #131313;
-  text-shadow: -0.1vw -0.1vw 0 #ABE0E7, -0.1vw -0.1vw 0 #EE0F50, -0.1vw -0.1vw 0 #ABE0E7, 0.1vw 0.1vw 0 #EE0F50;
+  text-shadow: -0.1vw -0.1vw 0 #ABE0E7,
+ -0.1vw -0.1vw 0 #EE0F50,
+ -0.1vw -0.1vw 0 #ABE0E7,
+ 0.1vw 0.1vw 0 #EE0F50;
 }
 
 .contacts a:hover {
@@ -1176,7 +1185,10 @@ img.thumbnail {
   -webkit-text-stroke: 0.1vw #131313;
   -webkit-text-fill-color: #131313;
   text-transform: lowercase;
-  text-shadow: -0.1vw -0.1vw 0 #ABE0E7, -0.1vw -0.1vw 0 #EE0F50, -0.1vw -0.1vw 0 #ABE0E7, 0.1vw 0.1vw 0 #EE0F50;
+  text-shadow: -0.1vw -0.1vw 0 #ABE0E7,
+ -0.1vw -0.1vw 0 #EE0F50,
+ -0.1vw -0.1vw 0 #ABE0E7,
+ 0.1vw 0.1vw 0 #EE0F50;
 }
 
 .contacts-pager p:hover {
