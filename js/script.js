@@ -21885,15 +21885,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // );
 
         if (!!arrFun[key].absoluteBoundingBox) {
-          let newDivTop =  arrFag[key].absoluteBoundingBox.y - 805;
-          let newDivLeft = Math.abs(arrFag[key].absoluteBoundingBox.x) - 5800;
+          let newDivTop =  arrFag[key].absoluteBoundingBox.y - 989;
+          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5811;
           let newDivTop2 =  arrFag[key].absoluteBoundingBox;
-          console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
+          // console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
           // newDiv.style.width = `"${arrFag[key].absoluteBoundingBox.width}"` ;
           newDiv.style.width = `${arrFun[key].absoluteBoundingBox.width}px`;
           newDiv.style.height = `${arrFun[key].absoluteBoundingBox.height}px`;
+          console.log(arrFag[key].absoluteBoundingBox.y, "arrFag[key].absoluteBoundingBox.y");
           newDiv.style.top = `${newDivTop}px`;
           newDiv.style.left = `${newDivLeft}px`;
+
           // newDiv.style.top = `${arrFag[key].absoluteBoundingBox.x}px`;
           // newDiv.style.left = `${arrFag[key].absoluteBoundingBox.y}px`;
           // console.log(
