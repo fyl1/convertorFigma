@@ -21821,8 +21821,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   //       }
   let arrFag = fig.document.children[0].children[0].children;
-
-  function foreachArr(arrFun) {
+  // console.log(arrFag, ";", "arrFag");
+  function foreachArr(arrFag) {
     // const arrMain = Array.from(arr);
     // console.log(arrMain)
     // arrMain.forEach(function (item) {
@@ -21848,29 +21848,43 @@ document.addEventListener("DOMContentLoaded", function (event) {
     // for( let prop in chars ){
     //   console.log(arrFag[j])
     //      }
-    
-    for (let key in arrFun) {
-      if (arrFun.hasOwnProperty(key)) {
-        let reSymbol = arrFun[key].name.replace(/ /g, "-");
+
+    for (let key in arrFag) {
+      if (arrFag.hasOwnProperty(key)) {
+        let reSymbol = arrFag[key].name.replace(/ /g, "-");
         let reSymbol2 = reSymbol.replace(/[(){},.]/g, "");
         let newDiv = document.createElement("div");
-        let newPText = document.createElement('p');
-        // console.log(arrFun.hasOwnProperty(key), "arrFun.hasOwnProperty(key)", !!arrFun[key].characters, "!!arrFun[key].characters")
+        let newPText = document.createElement("p");
+        // console.log(arrFag.hasOwnProperty(key), "arrFag.hasOwnProperty(key)", !!arrFag[key].characters, "!!arrFag[key].characters")
 
-        // console.log(key, ";", arrFun[key]);
-        console.log(arrFun, ";", "arrFun");
-        // console.log(reSymbol2, "arrFun[key].name");
+        // console.log(key, ";", arrFag[key]);
+        // console.log(reSymbol2, "arrFag[key].name");
         //  console.log(`${key} : ${fig[key]}`)
 
         figElement.appendChild(newDiv);
-        if(!!arrFun[key].characters){
-          // console.log(arrFun[key].characters)
+        console.log(arrFag, "arrFag");
+        if (!!arrFag[key].characters) {
+          // console.log(arrFag[key].characters)
           newDiv.appendChild(newPText);
-          newPText.innerHTML = arrFun[key].characters
-        }
+          newPText.innerHTML =
+            arrFag[key].characters;
+            newPText.style.display = "flex";
+            newPText.style.fontFamily = 'Manrope', "sans-seif";
+            newPText.style.width = "fit-content";
+            newPText.style.fontSize = arrFag[key].style.fontSize;
+            newPText.style.fontWeight = arrFag[key].style.fontWeight;
+            console.log(arrFag[key].style.fontSize,  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
+            newPText.style.lineHeight = arrFag[key].style.lineHeightPx + "px";
+            newPText.parentElement.style.display = "flex";
+            newPText.parentElement.style.justifyContent = "center";
+            console.log(newPText.style, "arrFag[key].style");
     
 
-        newDiv.classList.add(`${reSymbol2}`);
+        }
+
+        newDiv.classList.add(
+          `${reSymbol2}` + `.${Math.abs(arrFag[key].absoluteBoundingBox.x)}`
+        );
 
         newDiv.style.border = "1px solid red";
 
@@ -21880,38 +21894,38 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // );
 
         // console.log(
-        //   !!arrFun[key].absoluteBoundingBox,
-        //   "arrFun[key].absoluteBoundingBox.width  !== undefined"
+        //   !!arrFag[key].absoluteBoundingBox,
+        //   "arrFag[key].absoluteBoundingBox.width  !== undefined"
         // );
 
-        if (!!arrFun[key].absoluteBoundingBox) {
-          let newDivTop =  arrFag[key].absoluteBoundingBox.y - 989;
-          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5811;
-          let newDivTop2 =  arrFag[key].absoluteBoundingBox;
+        if (!!arrFag[key].absoluteBoundingBox) {
+          let newDivTop = arrFag[key].absoluteBoundingBox.y - 805;
+          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5911;
+          let newDivTop2 = arrFag[key].absoluteBoundingBox;
           // console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
           // newDiv.style.width = `"${arrFag[key].absoluteBoundingBox.width}"` ;
-          newDiv.style.width = `${arrFun[key].absoluteBoundingBox.width}px`;
-          newDiv.style.height = `${arrFun[key].absoluteBoundingBox.height}px`;
-          console.log(arrFag[key].absoluteBoundingBox.y, "arrFag[key].absoluteBoundingBox.y");
+          newDiv.style.width = `${arrFag[key].absoluteBoundingBox.width}px`;
+          newDiv.style.height = `${arrFag[key].absoluteBoundingBox.height}px`;
+          // console.log(arrFag[key].absoluteBoundingBox.y, "arrFag[key].absoluteBoundingBox.y");
           newDiv.style.top = `${newDivTop}px`;
           newDiv.style.left = `${newDivLeft}px`;
 
           // newDiv.style.top = `${arrFag[key].absoluteBoundingBox.x}px`;
           // newDiv.style.left = `${arrFag[key].absoluteBoundingBox.y}px`;
           // console.log(
-          //   `${arrFun[key].absoluteBoundingBox.x}`,
-          //   "arrFun[key].absoluteBoundingBox.x",
+          //   `${arrFag[key].absoluteBoundingBox.x}`,
+          //   "arrFag[key].absoluteBoundingBox.x",
           //   newDiv.style.top,
           //   "newDiv.style.top"
           // );
         }
         // console.log(
-        //   arrFun[key].children,
-        //   "arrFun.children",
-        //   !!arrFun[key].children
+        //   arrFag[key].children,
+        //   "arrFag.children",
+        //   !!arrFag[key].children
         // );
-        if (!!arrFun[key].children) {
-          foreachArr(arrFun[key].children);
+        if (!!arrFag[key].children) {
+          foreachArr(arrFag[key].children);
         }
 
         newDiv.style.position = "absolute";
