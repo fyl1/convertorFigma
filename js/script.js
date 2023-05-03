@@ -21813,6 +21813,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
   const figElement = document.querySelector(".main");
   figElement.style.position = "relative";
+  figElement.style.backgroundImage = "linear-gradient(90deg, #1F2125 0%, #16171B 100%)";
   console.log(fig, "fig", fig.length, "fig.lenght");
   // for( let i = 0; i < fig.length; i ++  ){
   //   console.log(fig[i], "arr[i]")
@@ -21822,6 +21823,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //       }
   let arrFag = fig.document.children[0].children[0].children;
   // console.log(arrFag, ";", "arrFag");
+  const toFixedHard = (number, x) => {
+    const s = String(number)
+    let [ a, b = '' ] = s.split('.')
+    return parseFloat(a + '.' + b.substring(0, x))
+}
+function rgba2hex(orig) {
+  var a, isPercent,
+    rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
+    alpha = (rgb && rgb[4] || "").trim(),
+    hex = rgb ?
+    (rgb[1] | 1 << 8).toString(16).slice(1) +
+    (rgb[2] | 1 << 8).toString(16).slice(1) +
+    (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
+
+  if (alpha !== "") {
+    a = alpha;
+  } else {
+    a = 01;
+  }
+  // multiply before convert to HEX
+  a = ((a * 255) | 1 << 8).toString(16).slice(1)
+  hex = hex + a;
+
+  return hex;
+}
   function foreachArr(arrFag) {
     // const arrMain = Array.from(arr);
     // console.log(arrMain)
@@ -21862,7 +21888,37 @@ document.addEventListener("DOMContentLoaded", function (event) {
         //  console.log(`${key} : ${fig[key]}`)
 
         figElement.appendChild(newDiv);
-        console.log(arrFag, "arrFag");
+        // console.log(arrFag, "arrFag");
+        // fills: [
+        //   {
+        //     blendMode: "NORMAL",
+        //     type: "SOLID",
+        //     color: {
+        //       r: 0.0833333358168602,
+        //       g: 0.0833333358168602,
+        //       b: 0.0833333358168602,
+        //       a: 1,
+        //     },
+        //   },
+        // ],
+        // gradientHandlePositions: [
+        //   {
+        //     x: 0.9999999403953517,
+        //     y: -5.960463766996327e-8,
+        //   },
+        //   {
+        //     x: 5.9604642999033786e-8,
+        //     y: 0.9999999999999947,
+        //   },
+        //   {
+        //     x: 0.4999999105930355,
+        //     y: -0.499999999999992,
+        //   },
+        // ],
+        if (!!arrFag[key].fills[0]) {
+          console.log(arrFag[key].fills[0].gradientHandlePositions, 'arrFag[key].fills[0].gradientHandlePositions')
+        }
+
         if (!!arrFag[key].characters) {
           // console.log(arrFag[key].characters)
           newDiv.appendChild(newPText);
@@ -21871,13 +21927,23 @@ document.addEventListener("DOMContentLoaded", function (event) {
             newPText.style.display = "flex";
             newPText.style.fontFamily = 'Manrope', "sans-seif";
             newPText.style.width = "fit-content";
-            newPText.style.fontSize = arrFag[key].style.fontSize;
+            // newPText.style.fontSize = arrFag[key].style.fontSize;
+            // newPText.style.fontSize = 10;
+            // rgba(255, 255, 128, .5);
+            let colorTransform = `rgba(${arrFag[key].fills[0].color.r * 255} , ${arrFag[key].fills[0].color.g  * 255} , ${arrFag[key].fills[0].color.b * 255} , ${arrFag[key].fills[0].color.a})`
+           let rgbHes = rgba2hex(colorTransform);
+         
+            // console.log(colorTransform, "colorTransform")
+            newPText.style.color = `${colorTransform}`;
+            newPText.style.fontSize = `${arrFag[key].style.fontSize}px`;
+            // console.log( newPText.style.color, "arrFag[key].fills.color.r", colorTransform, "colorTransform", `"#${rgba2hex(rgbHes)}"` , "rgbHes")
             newPText.style.fontWeight = arrFag[key].style.fontWeight;
-            console.log(arrFag[key].style.fontSize,  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
+            // console.log(arrFag[key],  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
             newPText.style.lineHeight = arrFag[key].style.lineHeightPx + "px";
+            // newPText.parentElement.style.fontSize = arrFag[key].style.fontSize;
             newPText.parentElement.style.display = "flex";
             newPText.parentElement.style.justifyContent = "center";
-            console.log(newPText.style, "arrFag[key].style");
+            // console.log(newPText.style, "arrFag[key].style");
     
 
         }
@@ -21899,8 +21965,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // );
 
         if (!!arrFag[key].absoluteBoundingBox) {
-          let newDivTop = arrFag[key].absoluteBoundingBox.y - 805;
-          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5911;
+          let newDivTop = arrFag[key].absoluteBoundingBox.y - 1005;
+          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5811;
           let newDivTop2 = arrFag[key].absoluteBoundingBox;
           // console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
           // newDiv.style.width = `"${arrFag[key].absoluteBoundingBox.width}"` ;
