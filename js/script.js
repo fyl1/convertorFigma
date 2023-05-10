@@ -2366,65 +2366,65 @@ document.addEventListener("DOMContentLoaded", function (event) {
                           },
                           effects: [],
                         },
-                        {
-                          id: "54:46",
-                          name: "Стань нашим легионером не выходя из дома!",
-                          type: "TEXT",
-                          scrollBehavior: "SCROLLS",
-                          blendMode: "PASS_THROUGH",
-                          absoluteBoundingBox: {
-                            x: -5682.4716796875,
-                            y: 1557,
-                            width: 170.39990234375,
-                            height: 81,
-                          },
-                          absoluteRenderBounds: {
-                            x: -5682.07177734375,
-                            y: 1563.300048828125,
-                            width: 164.912109375,
-                            height: 71.0999755859375,
-                          },
-                          constraints: {
-                            vertical: "TOP",
-                            horizontal: "LEFT",
-                          },
-                          fills: [
-                            {
-                              blendMode: "NORMAL",
-                              type: "SOLID",
-                              color: {
-                                r: 0.45188894867897034,
-                                g: 0.6430507898330688,
-                                b: 0.9333333373069763,
-                                a: 1,
-                              },
-                            },
-                          ],
-                          strokes: [],
-                          strokeWeight: 1,
-                          strokeAlign: "OUTSIDE",
-                          effects: [],
-                          characters:
-                            "Стань нашим \nлегионером не \nвыходя из дома!",
-                          style: {
-                            fontFamily: "Manrope",
-                            fontPostScriptName: "Manrope-SemiBold",
-                            fontWeight: 600,
-                            textAutoResize: "HEIGHT",
-                            fontSize: 20,
-                            textAlignHorizontal: "LEFT",
-                            textAlignVertical: "TOP",
-                            letterSpacing: 0.6,
-                            lineHeightPx: 27.32000160217285,
-                            lineHeightPercent: 100,
-                            lineHeightUnit: "INTRINSIC_%",
-                          },
-                          layoutVersion: 3,
-                          characterStyleOverrides: [],
-                          styleOverrideTable: {},
-                          lineTypes: ["NONE", "NONE", "NONE"],
-                          lineIndentations: [0, 0, 0],
-                        },
+                        // {
+                        //   id: "54:46",
+                        //   name: "Стань нашим легионером не выходя из дома!",
+                        //   type: "TEXT",
+                        //   scrollBehavior: "SCROLLS",
+                        //   blendMode: "PASS_THROUGH",
+                        //   absoluteBoundingBox: {
+                        //     x: -5682.4716796875,
+                        //     y: 1557,
+                        //     width: 170.39990234375,
+                        //     height: 81,
+                        //   },
+                        //   absoluteRenderBounds: {
+                        //     x: -5682.07177734375,
+                        //     y: 1563.300048828125,
+                        //     width: 164.912109375,
+                        //     height: 71.0999755859375,
+                        //   },
+                        //   constraints: {
+                        //     vertical: "TOP",
+                        //     horizontal: "LEFT",
+                        //   },
+                        //   fills: [
+                        //     {
+                        //       blendMode: "NORMAL",
+                        //       type: "SOLID",
+                        //       color: {
+                        //         r: 0.45188894867897034,
+                        //         g: 0.6430507898330688,
+                        //         b: 0.9333333373069763,
+                        //         a: 1,
+                        //       },
+                        //     },
+                        //   ],
+                        //   strokes: [],
+                        //   strokeWeight: 1,
+                        //   strokeAlign: "OUTSIDE",
+                        //   effects: [],
+                        //   characters:
+                        //     "Стань нашим \nлегионером не \nвыходя из дома!",
+                        //   style: {
+                        //     fontFamily: "Manrope",
+                        //     fontPostScriptName: "Manrope-SemiBold",
+                        //     fontWeight: 600,
+                        //     textAutoResize: "HEIGHT",
+                        //     fontSize: 20,
+                        //     textAlignHorizontal: "LEFT",
+                        //     textAlignVertical: "TOP",
+                        //     letterSpacing: 0.6,
+                        //     lineHeightPx: 27.32000160217285,
+                        //     lineHeightPercent: 100,
+                        //     lineHeightUnit: "INTRINSIC_%",
+                        //   },
+                        //   layoutVersion: 3,
+                        //   characterStyleOverrides: [],
+                        //   styleOverrideTable: {},
+                        //   lineTypes: ["NONE", "NONE", "NONE"],
+                        //   lineIndentations: [0, 0, 0],
+                        // },
                         {
                           id: "54:47",
                           name: "блокировок",
@@ -21813,7 +21813,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };
   const figElement = document.querySelector(".main");
   figElement.style.position = "relative";
-  figElement.style.backgroundImage = "linear-gradient(90deg, #1F2125 0%, #16171B 100%)";
+  figElement.style.backgroundImage =
+    "linear-gradient(90deg, #1F2125 0%, #16171B 100%)";
   console.log(fig, "fig", fig.length, "fig.lenght");
   // for( let i = 0; i < fig.length; i ++  ){
   //   console.log(fig[i], "arr[i]")
@@ -21824,30 +21825,34 @@ document.addEventListener("DOMContentLoaded", function (event) {
   let arrFag = fig.document.children[0].children[0].children;
   // console.log(arrFag, ";", "arrFag");
   const toFixedHard = (number, x) => {
-    const s = String(number)
-    let [ a, b = '' ] = s.split('.')
-    return parseFloat(a + '.' + b.substring(0, x))
-}
-function rgba2hex(orig) {
-  var a, isPercent,
-    rgb = orig.replace(/\s/g, '').match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
-    alpha = (rgb && rgb[4] || "").trim(),
-    hex = rgb ?
-    (rgb[1] | 1 << 8).toString(16).slice(1) +
-    (rgb[2] | 1 << 8).toString(16).slice(1) +
-    (rgb[3] | 1 << 8).toString(16).slice(1) : orig;
+    const s = String(number);
+    let [a, b = ""] = s.split(".");
+    return parseFloat(a + "." + b.substring(0, x));
+  };
+  function rgba2hex(orig) {
+    var a,
+      isPercent,
+      rgb = orig
+        .replace(/\s/g, "")
+        .match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
+      alpha = ((rgb && rgb[4]) || "").trim(),
+      hex = rgb
+        ? (rgb[1] | (1 << 8)).toString(16).slice(1) +
+          (rgb[2] | (1 << 8)).toString(16).slice(1) +
+          (rgb[3] | (1 << 8)).toString(16).slice(1)
+        : orig;
 
-  if (alpha !== "") {
-    a = alpha;
-  } else {
-    a = 01;
+    if (alpha !== "") {
+      a = alpha;
+    } else {
+      a = 01;
+    }
+    // multiply before convert to HEX
+    a = ((a * 255) | (1 << 8)).toString(16).slice(1);
+    hex = hex + a;
+
+    return hex;
   }
-  // multiply before convert to HEX
-  a = ((a * 255) | 1 << 8).toString(16).slice(1)
-  hex = hex + a;
-
-  return hex;
-}
   function foreachArr(arrFag) {
     // const arrMain = Array.from(arr);
     // console.log(arrMain)
@@ -21889,70 +21894,124 @@ function rgba2hex(orig) {
 
         figElement.appendChild(newDiv);
         // console.log(arrFag, "arrFag");
+
         // fills: [
+        //   {
+        //     blendMode: "NORMAL",
+        //     type: "GRADIENT_LINEAR",
+        //     gradientHandlePositions: [
+        //       {
+        //         x: 0.9999999403953517,
+        //         y: -5.960463766996327e-8,
+        //       },
+        //       {
+        //         x: 5.9604642999033786e-8,
+        //         y: 0.9999999999999947,
+        //       },
+        //       {
+        //         x: 0.4999999105930355,
+        //         y: -0.499999999999992,
+        //       },
+        //     ],
+        //     gradientStops: [
+        //       {
+        //         color: {
+        //           r: 0.4000000059604645,
+        //           g: 0.572549045085907,
+        //           b: 0.8274509906768799,
+        //           a: 1,
+        //         },
+        //         position: 0,
+        //       },
+        //       {
+        //         color: {
+        //           r: 0.28666672110557556,
+        //           g: 0.4400612413883209,
+        //           b: 0.6666666865348816,
+        //           a: 1,
+        //         },
+        //         position: 1,
+        //       },
+        //     ],
+        //   },
+        // ],
+        // name: "Line 4",
+        // type: "LINE",
+        // scrollBehavior: "SCROLLS",
+        // rotation: 1.570796282459055,
+        // blendMode: "PASS_THROUGH",
+        // absoluteBoundingBox: {
+        //   x: -4641.814453125,
+        //   y: 1144,
+        //   width: 0,
+        //   height: 86,
+        // },
+        // absoluteRenderBounds: {
+        //   x: -4641.814453125,
+        //   y: 1144,
+        //   width: 1,
+        //   height: 86,
+        // },
+        // preserveRatio: true,
+        // constraints: {
+        //   vertical: "TOP",
+        //   horizontal: "LEFT",
+        // },
+        // fills: [],
+        // strokes: [
         //   {
         //     blendMode: "NORMAL",
         //     type: "SOLID",
         //     color: {
-        //       r: 0.0833333358168602,
-        //       g: 0.0833333358168602,
-        //       b: 0.0833333358168602,
+        //       r: 0.45188894867897034,
+        //       g: 0.6430507898330688,
+        //       b: 0.9333333373069763,
         //       a: 1,
         //     },
         //   },
         // ],
-        // gradientHandlePositions: [
-        //   {
-        //     x: 0.9999999403953517,
-        //     y: -5.960463766996327e-8,
-        //   },
-        //   {
-        //     x: 5.9604642999033786e-8,
-        //     y: 0.9999999999999947,
-        //   },
-        //   {
-        //     x: 0.4999999105930355,
-        //     y: -0.499999999999992,
-        //   },
-        // ],
-        if (!!arrFag[key].fills[0]) {
-          console.log(arrFag[key].fills[0].gradientHandlePositions, 'arrFag[key].fills[0].gradientHandlePositions')
-        }
+        // console.log(arrFag[key].name, "name");
+
+        // if (!!arrFag[key].fills[0]) {
+        //   console.log(arrFag[key].fills[0].gradientHandlePositions, 'arrFag[key].fills[0].gradientHandlePositions')
+        // }
 
         if (!!arrFag[key].characters) {
           // console.log(arrFag[key].characters)
           newDiv.appendChild(newPText);
-          newPText.innerHTML =
-            arrFag[key].characters;
-            newPText.style.display = "flex";
-            newPText.style.fontFamily = 'Manrope', "sans-seif";
-            newPText.style.width = "fit-content";
-            // newPText.style.fontSize = arrFag[key].style.fontSize;
-            // newPText.style.fontSize = 10;
-            // rgba(255, 255, 128, .5);
-            let colorTransform = `rgba(${arrFag[key].fills[0].color.r * 255} , ${arrFag[key].fills[0].color.g  * 255} , ${arrFag[key].fills[0].color.b * 255} , ${arrFag[key].fills[0].color.a})`
-           let rgbHes = rgba2hex(colorTransform);
-         
-            // console.log(colorTransform, "colorTransform")
-            newPText.style.color = `${colorTransform}`;
-            newPText.style.fontSize = `${arrFag[key].style.fontSize}px`;
-            // console.log( newPText.style.color, "arrFag[key].fills.color.r", colorTransform, "colorTransform", `"#${rgba2hex(rgbHes)}"` , "rgbHes")
-            newPText.style.fontWeight = arrFag[key].style.fontWeight;
-            // console.log(arrFag[key],  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
-            newPText.style.lineHeight = arrFag[key].style.lineHeightPx + "px";
-            // newPText.parentElement.style.fontSize = arrFag[key].style.fontSize;
-            newPText.parentElement.style.display = "flex";
-            newPText.parentElement.style.justifyContent = "center";
-            // console.log(newPText.style, "arrFag[key].style");
-    
+          newPText.innerHTML = arrFag[key].characters;
+          newPText.style.display = "inline-flex";
+          (newPText.style.fontFamily = "Manrope"), "sans-seif";
+          // newPText.style.width = "fit-content";
+          // newPText.style.height = "fit-content";
+          // newPText.style.fontSize = arrFag[key].style.fontSize;
+          // newPText.style.fontSize = 10;
+          // rgba(255, 255, 128, .5);
+          let colorTransform = `rgba(${arrFag[key].fills[0].color.r * 255} , ${
+            arrFag[key].fills[0].color.g * 255
+          } , ${arrFag[key].fills[0].color.b * 255} , ${
+            arrFag[key].fills[0].color.a
+          })`;
+          let rgbHes = rgba2hex(colorTransform);
 
+          // console.log(colorTransform, "colorTransform")
+          newPText.style.color = `${colorTransform}`;
+          newPText.style.fontSize = `${arrFag[key].style.fontSize}px`;
+          // console.log( newPText.style.color, "arrFag[key].fills.color.r", colorTransform, "colorTransform", `"#${rgba2hex(rgbHes)}"` , "rgbHes")
+          newPText.style.fontWeight = arrFag[key].style.fontWeight;
+          // console.log(arrFag[key],  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
+          newPText.style.lineHeight = arrFag[key].style.lineHeightPx + "px";
+          // newPText.parentElement.style.fontSize = arrFag[key].style.fontSize;
+          // newPText.parentElement.style.display = "flex";
+          // newPText.parentElement.style.justifyContent = "center";
+          // console.log(newPText.style, "arrFag[key].style");
         }
 
         newDiv.classList.add(
           `${reSymbol2}` + `.${Math.abs(arrFag[key].absoluteBoundingBox.x)}`
         );
 
-        newDiv.style.border = "1px solid red";
+        // newDiv.style.border = "1px solid red";
 
         // console.log(
         //   "arrFag[key].absoluteBoundingBox",
@@ -21976,6 +22035,32 @@ function rgba2hex(orig) {
           newDiv.style.top = `${newDivTop}px`;
           newDiv.style.left = `${newDivLeft}px`;
 
+          if (!!arrFag[key].fills[0]) {
+            if (!!arrFag[key].fills[0].color) {
+              let colorTransformBac = `rgba(${
+                arrFag[key].fills[0].color.r * 255
+              } , ${arrFag[key].fills[0].color.g * 255} , ${
+                arrFag[key].fills[0].color.b * 255
+              } , ${arrFag[key].fills[0].color.a})`;
+              // newDiv.style.background =  colorTransformBac;
+              console.log(
+                colorTransformBac,
+                "colorTransformBac",
+                arrFag[key].type,
+                "arrFag[key].type",
+
+                arrFag[key].blendMode,
+                "arrFag[key].blendMode"
+              );
+              if (colorTransformBac != "rgba(255 , 255 , 255 , 1)" && arrFag[key].type == "RECTANGLE" ) {
+                newDiv.style.background =  colorTransformBac;
+              }
+            }
+          }
+          // if(!!arrFag[key].fills[0].color){
+          //
+          // }
+
           // newDiv.style.top = `${arrFag[key].absoluteBoundingBox.x}px`;
           // newDiv.style.left = `${arrFag[key].absoluteBoundingBox.y}px`;
           // console.log(
@@ -21984,6 +22069,35 @@ function rgba2hex(orig) {
           //   newDiv.style.top,
           //   "newDiv.style.top"
           // );
+        }
+        if (!!arrFag[key].name && arrFag[key].name.indexOf("Line") != -1) {
+          if (!!arrFag[key].strokes) {
+            let colorTransformStroke = `rgba(${
+              arrFag[key].strokes[0].color.r * 255
+            } , ${arrFag[key].strokes[0].color.g * 255} , ${
+              arrFag[key].strokes[0].color.b * 255
+            } , ${arrFag[key].strokes[0].color.a})`;
+            console.log(
+              arrFag[key].absoluteBoundingBox.width,
+              "arrFag[key].absoluteBoundingBox.width"
+            );
+            if (
+              arrFag[key].absoluteBoundingBox.width >
+              arrFag[key].absoluteBoundingBox.height
+            ) {
+              newDiv.style.width = `${arrFag[key].absoluteBoundingBox.width}px`;
+              newDiv.style.height = `${arrFag[key].strokeWeight}px`;
+            } else {
+              newDiv.style.width = `${arrFag[key].strokeWeight}px`;
+              newDiv.style.height = `${arrFag[key].absoluteBoundingBox.height}px`;
+            }
+
+            newDiv.style.backgroundColor = colorTransformStroke;
+            console.log(
+              newDiv.style.backgroundColor,
+              "newDiv.style.backgroundColor"
+            );
+          }
         }
         // console.log(
         //   arrFag[key].children,
