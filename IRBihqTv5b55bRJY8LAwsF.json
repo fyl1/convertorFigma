@@ -1,9 +1,6 @@
-document.addEventListener("DOMContentLoaded", function (event) {
-  // let fig = {};
-  //  fetch('./fig.json') .then(res=> res.json()) .then(data => fig)
-  //  console.log(fig)
-  let fig = {
-    "document": {
+{
+	"data": {
+		"document": {
 			"id": "0:0",
 			"name": "Document",
 			"type": "DOCUMENT",
@@ -95923,285 +95920,207 @@ document.addEventListener("DOMContentLoaded", function (event) {
 				}
 			]
 		},
-    components: {
-      "54:138": {
-        key: "17089b1db8812f098cc6c4a9f5d60f36fa9af86f",
-        name: "Mask group",
-        description: "",
-        remote: false,
-        documentationLinks: [],
-      },
-    },
-    componentSets: {},
-    schemaVersion: 0,
-    styles: {
-      "198:40": {
-        key: "69ac88ff345f2c44cc63522679118f336a5e38f3",
-        name: "2",
-        styleType: "FILL",
-        remote: false,
-        description: "",
-      },
-      "21:34": {
-        key: "485139f51e33ee7fbe73dddeca4343cc5f146199",
-        name: "bg",
-        styleType: "FILL",
-        remote: false,
-        description: "",
-      },
-      "198:7": {
-        key: "28e23827821552a7470267c97302790fc8ec22d5",
-        name: "1",
-        styleType: "FILL",
-        remote: false,
-        description: "",
-      },
-    },
-    name: "Copy",
-    lastModified: "2023-01-19T09:34:29Z",
-    thumbnailUrl:
-      "https://s3-alpha.figma.com/thumbnails/386ccdd9-d1fd-4b45-9458-444837e389c7?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCV3MZYZVN%2F20230119%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230119T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=d0c8ec4d42827041f43c688298a7072623c618409020d929eb9f5abfc2041a03",
-    version: "2890072214",
-    role: "owner",
-    editorType: "figma",
-    linkAccess: "view",
-  };
-  const figElement = document.querySelector(".main");
-  figElement.style.position = "relative";
-  figElement.style.backgroundImage =
-    "linear-gradient(90deg, #1F2125 0%, #16171B 100%)";
-  console.log(fig, "fig", fig.length, "fig.lenght");
-  // for( let i = 0; i < fig.length; i ++  ){
-  //   console.log(fig[i], "arr[i]")
-
-  //   console.log(fig, "fig")
-
-  //       }
-  let arrFag = fig.document.children[0].children[0].children;
-  // console.log(arrFag, ";", "arrFag");
-  const toFixedHard = (number, x) => {
-    const s = String(number);
-    let [a, b = ""] = s.split(".");
-    return parseFloat(a + "." + b.substring(0, x));
-  };
-  function rgba2hex(orig) {
-    var a,
-      isPercent,
-      rgb = orig
-        .replace(/\s/g, "")
-        .match(/^rgba?\((\d+),(\d+),(\d+),?([^,\s)]+)?/i),
-      alpha = ((rgb && rgb[4]) || "").trim(),
-      hex = rgb
-        ? (rgb[1] | (1 << 8)).toString(16).slice(1) +
-          (rgb[2] | (1 << 8)).toString(16).slice(1) +
-          (rgb[3] | (1 << 8)).toString(16).slice(1)
-        : orig;
-
-    if (alpha !== "") {
-      a = alpha;
-    } else {
-      a = 01;
-    }
-    // multiply before convert to HEX
-    a = ((a * 255) | (1 << 8)).toString(16).slice(1);
-    hex = hex + a;
-
-    return hex;
-  }
-  function foreachArr(arrFag) {
-    // const arrMain = Array.from(arr);
-    // console.log(arrMain)
-    // arrMain.forEach(function (item) {
-    //   if (Array.isArray(item)) foreachArr(item);
-    //   else document.write(item);
-    //   console.log("foreachArr(item);")
-    // });
-    // Object.entries(arr).forEach(([  props ]) => {
-    //     console.log(props, "props")
-    //     Object.entries(props).forEach(([  item ]) => {
-    //         console.log(typeof item === 'object', "props.hasOwnProperty(props)")
-    //     });
-    //     // if(props.hasOwnProperty(props)){
-    //     //     foreachArr(props)
-    //     // }else{console.log(props, "props2")}
-    //     // Object.entries(props).forEach(([ k, v ]) => console.log(k + ': ' + v));
-    //   });
-    //  let fadss =  Object.keys(arr).map(b => console.log(b))
-    //   let arrFag = fig.document.children
-    //   console.log(arrFag, "arrFag")
-    //    for( let i = 0; i < arrFag.length; i ++  ){
-    // console.log(arrFag[i], )
-    // for( let prop in chars ){
-    //   console.log(arrFag[j])
-    //      }
-
-    for (let key in arrFag) {
-      if (arrFag.hasOwnProperty(key)) {
-        let reSymbol = arrFag[key].name.replace(/ /g, "-");
-        let reSymbol2 = reSymbol.replace(/[(){},.]/g, "");
-        let newDiv = document.createElement("div");
-        let newPText = document.createElement("p");
-        // console.log(arrFag.hasOwnProperty(key), "arrFag.hasOwnProperty(key)", !!arrFag[key].characters, "!!arrFag[key].characters")
-
-        // console.log(key, ";", arrFag[key]);
-        // console.log(reSymbol2, "arrFag[key].name");
-        //  console.log(`${key} : ${fig[key]}`)
-
-        figElement.appendChild(newDiv);
-        // console.log(arrFag, "arrFag");
-
-   
-
-        // console.log(arrFag[key].name, "name");
-
-        // if (!!arrFag[key].fills[0]) {
-        //   console.log(arrFag[key].fills[0].gradientHandlePositions, 'arrFag[key].fills[0].gradientHandlePositions')
-        // }
-        // if(!!arrFag[key].fills[0] && arrFag[key].fills[0].type === "GRADIENT_LINEAR"){
-        //   console.log(arrFag[key].fills[0].gradientHandlePositions, 'arrFag[key].fills[0].gradientHandlePositions')
-          
-        //   arrFag[key].fills[0].gradientHandlePositions.forEach( position =>{
-        //     console.log( position.x + "position" + " (positiony:" + position.y + ")" );
-        //   });
-        // }
-        if (!!arrFag[key].characters) {
-          // console.log(arrFag[key].characters)
-          newDiv.appendChild(newPText);
-          newPText.innerHTML = arrFag[key].characters;
-          newPText.style.display = "inline-flex";
-          (newPText.style.fontFamily = "Manrope"), "sans-seif";
-          // newPText.style.width = "fit-content";
-          // newPText.style.height = "fit-content";
-          // newPText.style.fontSize = arrFag[key].style.fontSize;
-          // newPText.style.fontSize = 10;
-          // rgba(255, 255, 128, .5);
-          let colorTransform = `rgba(${arrFag[key].fills[0].color.r * 255} , ${
-            arrFag[key].fills[0].color.g * 255
-          } , ${arrFag[key].fills[0].color.b * 255} , ${
-            arrFag[key].fills[0].color.a
-          })`;
-          let rgbHes = rgba2hex(colorTransform);
-
-          // console.log(colorTransform, "colorTransform")
-          newPText.style.color = `${colorTransform}`;
-          newPText.style.fontSize = `${arrFag[key].style.fontSize}px`;
-          // console.log( newPText.style.color, "arrFag[key].fills.color.r", colorTransform, "colorTransform", `"#${rgba2hex(rgbHes)}"` , "rgbHes")
-          newPText.style.fontWeight = arrFag[key].style.fontWeight;
-          // console.log(arrFag[key],  "arrFag[key].fontWeight", newPText.style.fontSize, "newPText.style.fontSize");
-          newPText.style.lineHeight = arrFag[key].style.lineHeightPx + "px";
-          // newPText.parentElement.style.fontSize = arrFag[key].style.fontSize;
-          // newPText.parentElement.style.display = "flex";
-          // newPText.parentElement.style.justifyContent = "center";
-          // console.log(newPText.style, "arrFag[key].style");
-        }
-
-        newDiv.classList.add(
-          `${reSymbol2}` + `.${Math.abs(arrFag[key].absoluteBoundingBox.x)}`
-        );
-
-        // newDiv.style.border = "1px solid red";
-
-        // console.log(
-        //   "arrFag[key].absoluteBoundingBox",
-        // arrFag[key].absoluteBoundingBox.width
-        // );
-
-        // console.log(
-        //   !!arrFag[key].absoluteBoundingBox,
-        //   "arrFag[key].absoluteBoundingBox.width  !== undefined"
-        // );
-
-        if (!!arrFag[key].absoluteBoundingBox) {
-          let newDivTop = arrFag[key].absoluteBoundingBox.y - 1005;
-          let newDivLeft = arrFag[key].absoluteBoundingBox.x + 5811;
-          let newDivTop2 = arrFag[key].absoluteBoundingBox;
-          // console.log(newDivTop, "newDivTop",newDivTop2, "newDivTop2" )
-          // newDiv.style.width = `"${arrFag[key].absoluteBoundingBox.width}"` ;
-          newDiv.style.width = `${arrFag[key].absoluteBoundingBox.width}px`;
-          newDiv.style.height = `${arrFag[key].absoluteBoundingBox.height}px`;
-          // console.log(arrFag[key].absoluteBoundingBox.y, "arrFag[key].absoluteBoundingBox.y");
-          newDiv.style.top = `${newDivTop}px`;
-          newDiv.style.left = `${newDivLeft}px`;
-
-          if (!!arrFag[key].fills[0]) {
-            if (!!arrFag[key].fills[0].color) {
-              let colorTransformBac = `rgba(${
-                arrFag[key].fills[0].color.r * 255
-              } , ${arrFag[key].fills[0].color.g * 255} , ${
-                arrFag[key].fills[0].color.b * 255
-              } , ${arrFag[key].fills[0].color.a})`;
-              // newDiv.style.background =  colorTransformBac;
-              // console.log(
-              //   colorTransformBac,
-              //   "colorTransformBac",
-              //   arrFag[key].type,
-              //   "arrFag[key].type",
-
-              //   arrFag[key].blendMode,
-              //   "arrFag[key].blendMode"
-              // );
-              if (colorTransformBac != "rgba(255 , 255 , 255 , 1)" && arrFag[key].type == "RECTANGLE" ) {
-                newDiv.style.background =  colorTransformBac;
-              }
-            }
-          }
-         
-          // if(!!arrFag[key].fills[0].color){
-          //
-          // }
-
-          // newDiv.style.top = `${arrFag[key].absoluteBoundingBox.x}px`;
-          // newDiv.style.left = `${arrFag[key].absoluteBoundingBox.y}px`;
-          // console.log(
-          //   `${arrFag[key].absoluteBoundingBox.x}`,
-          //   "arrFag[key].absoluteBoundingBox.x",
-          //   newDiv.style.top,
-          //   "newDiv.style.top"
-          // );
-        }
-        if (!!arrFag[key].name && arrFag[key].name.indexOf("Line") != -1) {
-          if (!!arrFag[key].strokes) {
-            let colorTransformStroke = `rgba(${
-              arrFag[key].strokes[0].color.r * 255
-            } , ${arrFag[key].strokes[0].color.g * 255} , ${
-              arrFag[key].strokes[0].color.b * 255
-            } , ${arrFag[key].strokes[0].color.a})`;
-            // console.log(
-            //   arrFag[key].absoluteBoundingBox.width,
-            //   "arrFag[key].absoluteBoundingBox.width"
-            // );
-            if (
-              arrFag[key].absoluteBoundingBox.width >
-              arrFag[key].absoluteBoundingBox.height
-            ) {
-              newDiv.style.width = `${arrFag[key].absoluteBoundingBox.width}px`;
-              newDiv.style.height = `${arrFag[key].strokeWeight}px`;
-            } else {
-              newDiv.style.width = `${arrFag[key].strokeWeight}px`;
-              newDiv.style.height = `${arrFag[key].absoluteBoundingBox.height}px`;
-            }
-
-            newDiv.style.backgroundColor = colorTransformStroke;
-            // console.log(
-            //   newDiv.style.backgroundColor,
-            //   "newDiv.style.backgroundColor"
-            // );
-          }
-        }
-        // console.log(
-        //   arrFag[key].children,
-        //   "arrFag.children",
-        //   !!arrFag[key].children
-        // );
-        if (!!arrFag[key].children) {
-          foreachArr(arrFag[key].children);
-        }
-
-        newDiv.style.position = "absolute";
-      }
-    }
-  }
-  // }
-  // for (let i = 0; i < 3; i++)
-  foreachArr(arrFag);
-});
+		"components": {
+			"54:138": {
+				"key": "c340538eeff6e553c4bf3cd467d51b818160726d",
+				"name": "Mask group",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"762:291": {
+				"key": "8221db1874e2b84e377af58a5b9dd197cb169137",
+				"name": "Group 72",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"773:482": {
+				"key": "4a34f858a1548905c21c75f3176df3d4492c58bf",
+				"name": "Group 72",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"784:149": {
+				"key": "595e045e46fa73c7477fdf82438b6c6cf99e5084",
+				"name": "Component 2",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"784:153": {
+				"key": "995bba86f2a5ff991cf5d1a618156b6022662120",
+				"name": "Mask group",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"770:332": {
+				"key": "b0453ca0b111cba2a1daf714c25865bf30982abf",
+				"name": "Component 1",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"770:327": {
+				"key": "0f808eb65f5d3513d4b6b250044fa6c2f871b17e",
+				"name": "Ellipse 19",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"784:150": {
+				"key": "3809a0287963c234b2fa739333ab6e5f328e40bd",
+				"name": "Component 3",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"784:172": {
+				"key": "ab9f5b861f778c4acb315d2fc3687e106687c670",
+				"name": "Mask group",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			},
+			"784:177": {
+				"key": "7ea60c6e7f347edf4f6b8382dbdbbdf869dc0ed6",
+				"name": "Legion IP",
+				"description": "",
+				"remote": false,
+				"documentationLinks": []
+			}
+		},
+		"componentSets": {},
+		"schemaVersion": 0,
+		"styles": {
+			"198:40": {
+				"key": "579e9a799ccd50d0385831dbd83100207b5b95f3",
+				"name": "2",
+				"styleType": "FILL",
+				"remote": false,
+				"description": ""
+			},
+			"313:8": {
+				"key": "5999838cec6398d5bb22a042836ebe7574b4e841",
+				"name": "123",
+				"styleType": "FILL",
+				"remote": false,
+				"description": ""
+			},
+			"476:23": {
+				"key": "a389a407684893c857abeda830b227e7a2d9b318",
+				"name": "12",
+				"styleType": "GRID",
+				"remote": false,
+				"description": ""
+			},
+			"322:149": {
+				"key": "c8e932453fef2cbf577589e7b3f197e9c8e3640c",
+				"name": "234",
+				"styleType": "FILL",
+				"remote": false,
+				"description": ""
+			},
+			"21:34": {
+				"key": "6e123a16e4e29cf8e00996e2595eba6357318733",
+				"name": "bg",
+				"styleType": "FILL",
+				"remote": false,
+				"description": ""
+			},
+			"198:7": {
+				"key": "9bfec869c48df826f2f04866ee0d8b6c75b5dabe",
+				"name": "1",
+				"styleType": "FILL",
+				"remote": false,
+				"description": ""
+			}
+		},
+		"name": "Legion IP",
+		"lastModified": "2022-10-10T06:32:16Z",
+		"thumbnailUrl": "https://s3-alpha.figma.com/thumbnails/eeeb80aa-e9d2-4df6-80de-cd5cb4a1439c?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQ4GOSFWCWITDDLGN%2F20230511%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230511T000000Z&X-Amz-Expires=604800&X-Amz-SignedHeaders=host&X-Amz-Signature=a9427ebbb0032b776a8114dbddd86d2c1e105b8a4e25e42146484d411374c7f2",
+		"version": "3189703303",
+		"role": "viewer",
+		"editorType": "figma",
+		"linkAccess": "view"
+	},
+	"images": {
+		"fd638cc04a96bb25897f45be10fcc2a29c95d9c6": "https://s3-alpha-sig.figma.com/img/fd63/8cc0/4a96bb25897f45be10fcc2a29c95d9c6?Expires=1684713600&Signature=qBRxaxo1TrmYYldvimv~VfMe7sg77C7y6uH2MAS9mspq57L5L1XMT27SOU47V5IBWtA0bz3pdbAC24rhE92ctW1wwIe8vpW0saWZlA2AxEg1ZVCT47I9oizjsfIsaYWjj-GD668jOA6g~JPJCtc0HBtVrCALjg9aQ-z0XWjnNCCBYj6i4RP-rTHlE8hDVge7Ih~xJmJ5QH2ze~qLkmL2GQBArfiSGJuOZ2Gxb6uWwZgdCFnjcKo2t2idGwdt~puGlGJqxQbRVigBfcZitvbCkoKsxKFruS-18q5P5tzPDbeoUPgf6orST8e-whPC8maaFC0ZIwbsPS37UUiGPaaG~g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"b0ab39cb833451d763e2697d2d8bd89d77a31015": "https://s3-alpha-sig.figma.com/img/b0ab/39cb/833451d763e2697d2d8bd89d77a31015?Expires=1684713600&Signature=bUnQHx-oR4USZvTqUbCichsOF0ZOV9awuo9l3C83r5BVIWMOcLTy~-y8ic4s7k7QOay9dlH6P-y0I24jsOS-Sun70uEDlPvROv~lYsP2QUDTkclXAVDWq72DyI2Q~y8MUl9rRwGDEOYGTtLEJ~l1KCzvFfzRi8eyxD-bH~ASnAbjcQIWKv9F67OF~Q3dkgg~MTriIfdO2e-LIQ3TpeQeAkK51VU01UkbF1fyvhQ2OEz2pmZleYwLkAUuu6KyBNwgjU0AL7Sh-i~hdV7Cw6ELbdPCvHERJhATlr3sHnnWaPKG8HQHtgNmDHnjsccVPuLtOpsWx9eg0~U0HeddNkyLQQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"1623cd6e6bf6e9afb12ed1a1a441b9cc4175d742": "https://s3-alpha-sig.figma.com/img/1623/cd6e/6bf6e9afb12ed1a1a441b9cc4175d742?Expires=1684713600&Signature=ecyhN22DAsYsF68sf~UbDA5WYyiAS3RDbYu0ZARcWS8zpteeG9i1a~0BMP81zaCXBVZ7iZNg-vRgFO4Cwj2aodDQyZA08fbSXKjJGJ~3ffrpoVvyLVTg5zgKvqVBggMlxUCS13MYnMOHRTaMFWVjUu4hxizmzRa6PSL~TJ4Fv40ThqKPBY8c84Hmn2zpIVhm49Plf-AjaNPPQECTR0Z6Nc-wCbTns1uajqrpo~1tcDKRY3OwKljhgCWcCPzDiP3bkv0Z4gMcCLnVDFoeCjVxdzcTKhyP-Wsg3D0loyw9gpQXvUiuSYD1bp1cMmnEr76fNZ8tm~oNkuil~hCY05gQqQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"5bfa3e9086a50885a005ccb35ea3497e77908210": "https://s3-alpha-sig.figma.com/img/5bfa/3e90/86a50885a005ccb35ea3497e77908210?Expires=1684713600&Signature=q9lNnKXOSHnzPQVxQO7uuhLipjxBnAV6uNwlC4YLQduoDDIwr7mpWxujbNjULRFwJCay22NqxjGFn-fOoAauwXCQSV0rviU8HQjVwtkmjrIPMykFS9yL3u3eezR9KC6Ktd5ODeneIQI22ga8blRixxmvMKg7XNZsJYLxtXMibkc22akVsDq-NCqy29HuaivkUgJYVXGa3kdMsnvy2R~NyxRY3onbM7ViTpMCLEvdgbQVxpIhZiDUHq6SzaS~1~OCkPmvrkY4IQesmb5kbPaEWDLs3mgo6XkN0RnKBtVKtuXHfAA7Juk0cI4b6AF5kKHrroAXlGMGT1~faQq6SBZEYg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"174307318aeeabf60fef78e7857d1c19087d77fb": "https://s3-alpha-sig.figma.com/img/1743/0731/8aeeabf60fef78e7857d1c19087d77fb?Expires=1684713600&Signature=hP6XFuQzw5f7FpsS77aBcNZLh~yDFbQGBGHcAcwPPcuPbNfgdthMTqyLHCx5ggwfqWIIu1Y1YmWAUe35S7Z1boJ8RsBjbHQDvhxSkYzP7t3Ut9uvt4gOTK62bvAnf~g36plNIggncgpVARn5-r6set6bXezSSF0ZeKvpZ49jAMSCFpTbI4YOVD2ewPys~tiwXyT2kHETrsE2fdbhc3mvdUyQc~k-1mTTevqq100tSd955jMYoAlwxUnybG3VJ1YAJhikPVlqLg7aqH-VBiMQ5yKSaCJVmO4MxXKeOpHUI5fgo-Mvd-4QG0vQvIj~xu~WJdxp8OR~cr~-0-Ik-V3zrg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"6266e8a9baab101204a1f6e41d5c8444635ad06c": "https://s3-alpha-sig.figma.com/img/6266/e8a9/baab101204a1f6e41d5c8444635ad06c?Expires=1684713600&Signature=JKnju9H0yWQGFLVEDsnxMCKLivxDZPbWiyny8PzgPdrvnf7riJ~b0-b54DQBQH-2aW0GtYcSkCUUCwqjyfvZx1W6cM62nMN6uv0F4HO512JEFCEISoUDsTvs3y7~~aUGeFh~yJRR4HUs1KrGqysxJjTj~erfH~FKU-piItaDEgb6RxT3CXbRKsu2bWd6whd857GAu83Otc1~9GJvWNIPyECn2ZmKQVCaEnkc-YzhyUuAsqGt5wYsV3lYuuixIX9Qig95zZ95IHOyVGF6Zp0vGye~evlmscmbHkrLg0NLVhDjH0sc~mMtKjzX-KyJoU-Eyri6FmE2IbMNmnotpNkRrQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"7b0802b84bc7e3050ed90b0bbca56b8dbc87dca0": "https://s3-alpha-sig.figma.com/img/7b08/02b8/4bc7e3050ed90b0bbca56b8dbc87dca0?Expires=1684713600&Signature=ji2e~uKPKPuY3swkvwogK8SiWp1aNuQYQK1g7yBrxZ~gZbdkWINP2E~wfBTkvXW6pBODmtJs2cUOReDI1nMBhxKk~JgyvkmjuFdr-d9tbc-2RKQcVRWAXIqMOM6IZs0QMA8JHDtjwoap9WJ2UjhzzK5SkBcfbEQZGfF7z3tywGbuxc-PmzbYh7GFpjtj1hOD2-Eg8NFfbqJsE-y1GMQoWdqn69WtBcyTBCenAVvRCPaO1msRicSKX92KqZytj08YjESnJg~GuOVdnhZLhmqnSe-6ZOaKLlzXa49BGXqhbDXxG4bnL2QNDYzLF6lmrz6dL2f3UNf~ry3QRRztXoajUA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"2e0654250a4aceac6ee03da84c46456c3de82d67": "https://s3-alpha-sig.figma.com/img/2e06/5425/0a4aceac6ee03da84c46456c3de82d67?Expires=1684713600&Signature=KR5IxRKTCkYs-qpbYQdwbqkltWOagYlsy6wU1YKMaR9blhcMOUF1Beq~RvCyBjmL60hxT3KnK~pebAYMVD6ivkMCeNp7dQSloSeR2iED1DP0~uGD~M4lbeZJphMRJqnIb05MNQcwTniJIRSZbFh0NBRhtq1mGvf~KQFQXdPmLfw9zOsayS256SOQOeKm-9~rQDZbIhm1low9Ow1bzmGmdTS5qK-S4~FgH9vpfxHutAVWBRL8HbA6q~79kJD28E0RFRlASC0~d7g7t0PhHD27Sg4Di4taGvwJALJahrXCNPqWik7wiSo7yW~lh7EYeP-mZ991L9oKqQt2mhUJsq0pKw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"7e6196ed2dbdb9b71c9fe633d5fd429b5ac5a6ab": "https://s3-alpha-sig.figma.com/img/7e61/96ed/2dbdb9b71c9fe633d5fd429b5ac5a6ab?Expires=1684713600&Signature=OXFUTrESlcnn1Sygyfi47TY6iz5WNAFEc~RN5-fifPn3SKqTpqVyjkQmDIEfTkV9ZyDfJRfzey7F3BdqC1sBQZB4HvB~2ZSCygYTXBYG8SyBfah1jiChbvUb5zfWxNjL7YAPuEfvILtf~0Q-sIa5Oz-z6Dqj0IVa9QqH8RX1Ll1Ec90QgXKVnPD3Apqy4u5j4gRQNvzsSChyJ2GxzeMHFmnxJD6elQ~wiJBucWmomA90L4NbejqpIAA0Q7CyoVcgEE0BiSAQ-qhLKki7iikl7MSa3B1afnuQSxpCOF1wCZ~xX98-1UBbtmnUmst4pyvrCKkDtEqNXP2vL0YcZQPRAQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"c7475244a3bc1b8b2e4d621560160ad158b13702": "https://s3-alpha-sig.figma.com/img/c747/5244/a3bc1b8b2e4d621560160ad158b13702?Expires=1684713600&Signature=WyaLxYoHYkHfCR2GfsAe5ucpSAcbRAKzye2VTOOx-KqMH8cSYUH1h3V5ZXfTCW6yh5b2GGJICNiidPdLlT~rCmMiosH4OlsaoYQeRgNbXyIRRxQxMP6YGHt44oWFbUSH~9fVvd0ndguLjr~WeZEnCimts0V6T2L51LMDpKWhRaGbwx397eDpNJojvFxIl6yoe2pYy8jtVpzEdI1KcnaPdSlgzcqZliOV5OUIjwp~036zW1V~SM5DyCZMZOfcT84OqZjxRKAIIxtJIDCwp-EWE1sBkkB1jbYPUxPb513RXF2k8BW2B29IaWIBIv1RyeapwF5u1wAVVAjKExFRLDqWVA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"ba022f0b933ded67c16a57b6a10e39d70e4ea0b6": "https://s3-alpha-sig.figma.com/img/ba02/2f0b/933ded67c16a57b6a10e39d70e4ea0b6?Expires=1684713600&Signature=mAW1mwVHL918dQtaLivvOAEiwb24UZy5vT9rvEHqKT3TiSgCT4mFHn4Q2QNq-9I7MFBr2POUgUmY36e4PZcWfZBvSYQGkPprZTyXPxV2YIWGExj3kB7m8naOzAYuChhkbXTzOgyONoy1xC6YCjRkzm7lrjcRrdzpU8-GCHbqpJ7P0Jz2kZS4G1MbWN-XaYsPMoqFxX5BE3owu~KgpxQZMxvHN0vZCyaM7tsa0pJDCsdj801dB2hlvLyeTYFcv0-Dk0WiSk7RaexhBYqx7M8Rq~GGeGoKQR1g~WYjCZUE8hcaBI2zmwMTUKsQODqRTbMSwNRD~AB8eb8xu13c~XWthQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"feb79e0bc24db4255cec97ac9ce5c5a80c835d76": "https://s3-alpha-sig.figma.com/img/feb7/9e0b/c24db4255cec97ac9ce5c5a80c835d76?Expires=1684713600&Signature=aoltsQoAEMTRna91iJU0EpCJDj-hOHpmKzuRBrLy2rl8j73ZcEZVsuy~YmVC5XpcZOefk~xdrGir72Wc~4cpZRyNYr6HD3dck111c~J2EsOW9fqTJxjkZ3t-~VEsxXBSMST90nAlyriyY3dE7ArYhfGzFCyucggfpSvW5T7wjFKjJ8ZmA7dnpZqfsUAi0skrSCIYBq71vqvoA3Z6aCs8LGzLPz8gsOVahNl-yYhlBCAiWk9C5iuIPxQovpg1cSiOrSWbNbAqWqHj4VVEzoD4lx3qn00LVgY6MyQsLq969hlb~Ay1009wmeuHbEvygAKlX~scdzXIzM~ZoNNpxTP1HA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"c79de1ae283e00c5ed28e1f21a1336bb89a58114": "https://s3-alpha-sig.figma.com/img/c79d/e1ae/283e00c5ed28e1f21a1336bb89a58114?Expires=1684713600&Signature=Yg~H3lntZxgRpn8cMSXThkia3cM-LG5lY-75IfXsEH2ae2CGwLYWsHnS3OnaKrzl~pGR6kcbCLyJoINnZWTOpT43ubhe1LeVXjKCDkuO5R2L~rVMK7ZJUywMoPKS~sjUPVU0FTJqnVtUQX8gZTSIFhUuntgzcLmr9TwPlIBxKPhFlyVxrhdokgVmHfCN3MuIaG58fGwTDdu5IiXYRcS480hhE4J8HwqzmatUUjHu9ae-vynEregRepmlBxTGpp~GzNv98JI18HMO3rLOjFenctCf2ZncZsSQ~M8QpHcE5HLJ0Id8gcfVUkmb-YZqZkJ5NXfxh~jnOhwfGoC7luWSNQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"30cea0f36427a4d57c0abccf584df96923e8ccfc": "https://s3-alpha-sig.figma.com/img/30ce/a0f3/6427a4d57c0abccf584df96923e8ccfc?Expires=1684713600&Signature=JkUh8MVleKoELZVOHnaDM67QUSIeV2WNNv0L4qvOfVhZikJoI7UtEb4tQv50Qe92PFQaPHp~WanMEDAG064pc4E-MkXY~0HkDZ9k84N5TNn7aAnHdedP9lpwyTJAk81cYtDokPN7niCjOiSKf2f3NrOUypt13LHN5ag9W9CX9rSUw8xo2kDKTDbmql03XvXveJy~zzcAs6ADWngCSn6D9ayeZfsm8GzsIODfCDWVeVK3CBgPcOM6Hhhl096yMqmrURlfl3srksH2c1D5s-HFC5hpp54HI~TVcUk3tFFftGJT66P~4LgxptoPJuCOc4S~TTGsQuDguLEHkE1KY1-94w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"01c2d5a865b4e6f4e1409f0e289c80055741b2f1": "https://s3-alpha-sig.figma.com/img/01c2/d5a8/65b4e6f4e1409f0e289c80055741b2f1?Expires=1684713600&Signature=TmGaJj50rgEyp72drVE98uW73w39zJGwQuqYEc88Ywd5xS78jc2phZWl7lYmkuAZTOxsP29ofcmpCZXB8MBERSfZGGfTExIt06gCFvTSYd~-~sukJmupBjUkWw80YFfMs~AhEHPcI3L1DSzSONY~UUYtOxKj-yAausu-Nwa8dzK3V9KKonKYct0WJXHdvkwpkZYl4YlPtL7oJ3o197HIituvOaVk3CG7hBBJbbLgMX2RwPJYQO4i4u-Z7usaJckHZbgDOE3KTfLT1koo4Mr66rfnc2FZlt7xHuNCzXdEQJvsfCQj9K94BtCyyERjfYMTeX3KghmIznu~1QGzPzRWsQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"01f9005ffef9d50f46dad6b95bbfd11dc0d80c59": "https://s3-alpha-sig.figma.com/img/01f9/005f/fef9d50f46dad6b95bbfd11dc0d80c59?Expires=1684713600&Signature=LZCCUiletotuf87uQdfwb5EExqfcOgGp1a9Pt2m9Xp9DWH17P6Jzj-kl4gied9Jrj6R-exttTHB~AsNA4WIJrxyMCNZyuiaSR7xgMY0IlTLcfDPdBmmQEetWJQsh8s90zlUXgJYN7Y6RZijNzkTgtnVTyM6hW5biwmPiQYHTXrsDlxP1figEq6S9Eh-dKN3U8h9qq24UEbAQgBMbMACWARgvqoa97YcfCbnqBnwa6P8z8gq-WtXN~Hq269KSwFfOYf-WK-T~i7zIaT46A0In1ZXjxTSKB-h6GGmfwYunPWHLfkivBWGuWNeuUsMhYzENWBmwsbjwqdSlSJFUSO9Frw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"52c26954f6b37c99d104c052d823ce3df4b1c6c6": "https://s3-alpha-sig.figma.com/img/52c2/6954/f6b37c99d104c052d823ce3df4b1c6c6?Expires=1684713600&Signature=cTf~yoaB6mPdIOuiNnb-x4e5MdrhJ~Ynoj9xwvvT6aMEt7Vqw~4tAA~XgQqUzGnbofS-AegwkLOOxwSWV28pqlmRyrS8sLiISY0b~CoXS2mdmiuFdgNjEtxoSm1QCf~nHGJaODstzGX3dItoJgKEu1IrEOOCuPKyXW~mO-ByaZ75Uj5uQgYdvrCnhsieu76r3DLJmjt~~fNaP-Lij9f6ivsL5TQ7G~tW9KFbsttthEUoiTHvdXlvkQHymAtKDnZR3boXtAmlybPQbHnRq8ehAIavUjWrdwbjWYDuXLbmnWuY3v0QhhjXe260kK31fRHzLUK2~dU2JVoG77STYj4gWw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"e43b44349f797d442380ad5d3d47f55d052fd574": "https://s3-alpha-sig.figma.com/img/e43b/4434/9f797d442380ad5d3d47f55d052fd574?Expires=1684713600&Signature=qFNKgzzzD4-zzJXNVZEggb-4dEF~bjeJZ1Kob4GxL0WU~dKC028IT1XKCu4nYvcp2pqSeJLHMjwihThL6IaK6dkWMAx3Tunofz-7vi6OdrpmqEveRzNV0dMNvtADEddFRcheY6yrWTQes5fgsN8fMHcQyjc9p~B4LSPX-8TxhlB4betXo9-M-gXo4vUCkwB1H6C5iJown2Sfjndtqn2Zo8giooTLrYNJ8JVDyIuvyXGTsA622pvPEZ0M9EJ9qAcnUUbbrrycK7HDSyIY1dU5G0cRLM42tesaaTd2EgR41GpMFmp1xx8DWkhpaGxpt9BZm8sWV1QUT2rzx6PQlWlPcg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"b28bc2ed31b8decce64dce3efdd0e5d31abb4496": "https://s3-alpha-sig.figma.com/img/b28b/c2ed/31b8decce64dce3efdd0e5d31abb4496?Expires=1684713600&Signature=VWUajeeH0EQckikY-ZSVOmcIUaS3WgtsJ1t7-2Pr5trK~QoNyuybMVtz5zWoGbKpL-r5cO85jmw1gq-vCV2YJKQJQhCvG-TnLL0uP8LIcfOhiEjQ2uTG2I7trnuIAIe9sJL8ZdteZBpQFWSw8O9CJTaYdGgpuHoMiIyv78tb49smKAWK7AJWv4MXYgShhCLG7L800dRR4TJ43usV9cSL-nhOmMDvSKn8CYwwbveZSdDw5CQ80uCb6wZrWC-UOHSlCAuT7ZBc3JQYe770IRGm55emZakuLQ~e2-YZ8uDLMtoZbLk3R0WN~dvinLhgqPu3FYEcvklSz6vi6J-rlUpOdQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"4ce415c4aee44d2f0ee2204b8dd7a3a05b03f041": "https://s3-alpha-sig.figma.com/img/4ce4/15c4/aee44d2f0ee2204b8dd7a3a05b03f041?Expires=1684713600&Signature=qNujLNkiKsTCbXVKhOfLtObkM4YPtxdK7Gao-KLp9qT9I6AU1b~X03LzGi~gRrQT99VsT3dsrHEYUuOo~NLdD9KtUFehsKjAPDAGFaRwFDO69gYwvk83L5qVntlcS9TjkYpkxZXr~TFn6q-Pd2rtBb4ZIoqyPAYSRGMYzEky9k-om434d9SEqwts-fBjRtOac9vJiuj02rdrstkaPr7vLligvKYT9Nd-yvpOHJG8l9OQJKwqQOzbVKAx9MGROYKuYxpTMOobLp8IbMt~mBABXxIpoU8OHqydrkb0AD7cL0MwK1dog8OiWcbHIVZ5rSiOhuMSunzE73mZihhy9B9ufw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"9b9be869df44475864c6f29749cf61ca60d04d36": "https://s3-alpha-sig.figma.com/img/9b9b/e869/df44475864c6f29749cf61ca60d04d36?Expires=1684713600&Signature=OxxjDM0qIWu0BVeeZXrxa2FrZQx~oC8f8OR7nqOTHNim1~jTt7St57Evduh~HlPuo-4E96ODzq6VVWoB9jknXugzoyoPsHKJTU6zvgrsats~eEvlYzVQjd1PPMRslaV45mdgBchhjJ9GrY1oR2IeLEqYOqjaJQqBtzMGhJ9AlgMflMQh55sKoo~iKb8k7SVKbx9vc~yK64R2hOwW2h77~Sd6gjegB976cpgaJPcR09eGpEl6UX4aIjOk17eszgd0PcLqVr2np6giSy-s9JgJHHpWS-plU8sLwrwS8pAXFKuRKWS9T9X9M-Hj3TGicoEGEvpDLVJVLi7bIifKjgpjoA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"8f26d02cd2239ccc8de2fae38792d66c684d5e16": "https://s3-alpha-sig.figma.com/img/8f26/d02c/d2239ccc8de2fae38792d66c684d5e16?Expires=1684713600&Signature=LG1b0D1LfkhQLlyob781CkOGTMv8L5bEG9VEXnIxHNAwSLbxnOlNlHw802Q9721ZIV-FopgEl4KjH5DDzhK0RraGSCekVJbT9nN1fV6F84J8~8d8OJQNxxREIUXmPBvy~cZ9SJ4t-07opgZHac7n8YpwUDpiP8BcZ5hM24rAkmKRzizI8B-7Tfk8fwNFpfa1yY7w3MScol2I8NlOsaZt~RZ7W4Q~OU32vPSqacgHjUFxD1NWGcmvXcjeXyo~Q4CH~e2cCRjaUSSfHR3F3UCoVTbSUSuGDKNeDHcSv29jpzDg7Pf~cz-EdvCC3yDPYV9GSL5hfS9X3Mt7BHEZsQw0wg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"39b32c34222d1dc6617146ef09bd5fce08b2cfd0": "https://s3-alpha-sig.figma.com/img/39b3/2c34/222d1dc6617146ef09bd5fce08b2cfd0?Expires=1684713600&Signature=grLtahfi94igYB0mw~9KIIa~3G9yvnLDs6-pFzBxBxd3Jzsl0ZqCs22jmc8UW2T8OP8zAQELKJKee2I7shvz6nfNuNfrwfil3tSH8JbZAthW9Z2Eg8Xp~tDQ0TQXRgKxgGeo8ab6XiE~as~t~dbA6Nqs6tNiUQlD49VThsb4bxyVLn0SnTtlL1p1EhceysStALr5-TA1LwX1frDzqXRB3YN7-F3M73dvYWNJ-pEKCP6l8D7Nj~jcjnHyOAKp-5C34--0gk-Fs06qROUzhJY0amnv7slYTdcY2OzS70EeyyjAMt2FVn6Pei8j7XqvtQu3rswwwxEN3plIpL3l9JMZSg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"25f3f5bd3cfd238daaefcf3b7fbaf955c6261bcc": "https://s3-alpha-sig.figma.com/img/25f3/f5bd/3cfd238daaefcf3b7fbaf955c6261bcc?Expires=1684713600&Signature=Ebr3uxriFTFvWNUmaReRDL~s~TYBC7DFsPD8tPAtMAv8u7NcR1AwBU0rnkR38wvoXrEc0~2As8QWrH2~EIANzSCFcE-ngvC9lyjK--jg5Cr8KzPyEkTfnGqh~oJurwb~DNCITf06KU7~uGeujek0f8jefCiQ5PC-vyDVNqcRnIDYj~zwPaaQQc9A7etrmBMX7dA70xN7GsHO0u2rTRBO2ac291-h~JxukCXC48Q-BBUFUj4txYDVIYJ3R900FePFjMhu21HUHueGaPKkinL9aNBK7Uve4SzWFLLTo382fd1x5JeVJwg~IkZDxKn7EBcLMd5lNHUHwPcK5K3rNr3WGg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"a5d605d5935ea815ff1027ee8b6ce5de1a3cc57d": "https://s3-alpha-sig.figma.com/img/a5d6/05d5/935ea815ff1027ee8b6ce5de1a3cc57d?Expires=1684713600&Signature=iJ-eNo0~NRIBvKzWmmNOVnT2zlKft0TyGtN~8a61PrjHw0pJP5o7hsBAbSa3c1OVW5Qzvdbqs3LLlD75xvDAa9Y2ZoUSuJdxQj3Smnu7NM7nBJwzyH2qFIVHLTqJweojcp61CD2mNWA6MJROucODPD86urgQPwwL~rUZsQfR6azEYl-EIlN6NxTVjFy1BUpYujFrzpbh1QpQQanInX7Uthu4rFykG7BJHyTR5d9wgVEsEGIAIwHOrpfQEyXTmBw5ldauCieB1g5ky5xv749wgILUIve~th4eXDWOKS7oXqiwmXZyJI8C-2htfWS8Al9FbMSVySSm4Wxu-AaEzmTiMw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"bb46fed5cb7856fd763fef6fedfecca68b6ff374": "https://s3-alpha-sig.figma.com/img/bb46/fed5/cb7856fd763fef6fedfecca68b6ff374?Expires=1684713600&Signature=GmrERqUbUiip0Up6wSMX0htUTQnhbCqMlCll6f710sdG5vfmz64NWUiytBtfacY9xHcs7a3ClEOB-wkrCdmORTEre~Bq9-nn2NmxBffXBLCSIgsDznesYy653Sg8Y5dddFlKVPlfCay735PEIHCwjsxusyMYsxWTmVexU1pZhmxA3DsrT0RkOCWvth8vBQV7bDbTLOvD7UVuYe2dVHAAElow9u8oe6gnbcG2bw2WYxDFYJE3YW0ozlLXBi4iXpUweO9bzG1sMeQoY0MDxnkoFmrt4SwzvZB28W2BPMzuNCv~EpwACrPImh8LnSb9XgzXzfS5NiT0Q~XAxkZK3X7dfA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"322d24df7ea6d6a2ae95fd61cf23ce1e49dc193e": "https://s3-alpha-sig.figma.com/img/322d/24df/7ea6d6a2ae95fd61cf23ce1e49dc193e?Expires=1684713600&Signature=L0P-3MeuPmsyazjeLm644fMi-iEXfsBsGmi2kRAdyEtw4ZE15f3CSWO26RkVYd7QmiyGGsOtwojJhdF~2kBcO8F9BwKHujiMkRvU7EcxcM8FATeIXMDdD4bLyT1gQzjT9c9pqAPy4UnM8OGppBCyFtCAH4Q-uqHLB5SvBzRXryE8KhqB9vHS9gaiQZtWDNUom5tcTsHxuwmOodroN3QluMa6csn4LottvWA05pgrVokaGYxdHL~z3efoRjvee5XMsBuvVxtt3ChPFySYnY436zSwf1McUxhT-WjrOzKz38M8nVG7VtBNYf0SMc7zxAg6KW316lNPzmMmF4mmTK1SXQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"b6f4400c3e204c18c6bcc06b3639e31594e660bd": "https://s3-alpha-sig.figma.com/img/b6f4/400c/3e204c18c6bcc06b3639e31594e660bd?Expires=1684713600&Signature=bCgh2ihR6tLcrSB5Czhhtkrd1row-llijDh-eUsYa8z8t7xYWrIcv3VCcaZ3a8yUtR6eUMKBt~O5x5d3-mk0lYHywmfewEX7aW0WOxxAYjBa6zKj2TFfZ0eAFTtoG9woCPimMj1RI0ovmDrOrhFmgY4PSme0-W7RBYFS5qlr7v1bk8Q8t-4LL2dBvkTQXxrJ7eO4xG81XKPZorNxIe4j4S9gGwsdNPHTjPyziyOrUl~8IeZHbzIHfDE3Dmu9WYk4TD22ohE2RMsAcmycNPXmBtgl~j7EHFJsRMr0oXR2Z5TTHzxlUcGBDjSumBdM7NCBS0arUtxayCPVnpmtzhQK7Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"7a8b10c294a58986e7b471461824972e27c7b78c": "https://s3-alpha-sig.figma.com/img/7a8b/10c2/94a58986e7b471461824972e27c7b78c?Expires=1684713600&Signature=WZ8s7zALHkoJeg4QI4XaF7HBln3pYN2cVtwlNuedu2rob2N9y2awDGEpPH6nzR~zUCmaDwCujx3Bds0-WFY1hdQsJDQggSOnN2NGV9ZxSUBS7iolI1SnQDCT8~Ivm5-JgklyKoZaYE89rw2Hisq8vIrNLb4g1kaHY0AOkKb8DKB1MCiPBDaxj1~pXJcvQRmXJCzLL0PXyS4qxJY2aMUNzsB2~T3MujZmb8v6SXjSUmRJtCRr6XboTKM3hPYnHHY-nZG3j-P6k4Yw9BEkUoeMWQ5SEx-5c1zbNFHXgmR7jzNRwxiJH~fUBHVm~5fL~jxczFxc9rz05xdJh~CgHbCodA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"a82da557c79a5f8438af4dfc2737f6e0dec03519": "https://s3-alpha-sig.figma.com/img/a82d/a557/c79a5f8438af4dfc2737f6e0dec03519?Expires=1684713600&Signature=bwWKNYI~8eljfUolGS7llQ4-xfMUXItyQKC~9BBxNxfFG09wXRAdM60YI1c0NrBIzO2DtrGC0ZJzTCNNSFe0IBtPsqu~QNNlpMVKH3vGDXSzrWkwwurVRdQQ23LE7wR3AkwpKlqWvkyZIGwqejKmRU6-UTvymF5-mYG6LYZvwPz-cf8jP~wgMH-14s~Gs-OV82ANhwIj7cP808KgBy4uGHmfG6Lex-89ek5LR7EfzOOGTt4w8CtALmwhb~C-2nau0LdyNsJQdCXypL023UGaorXnd2TDE0t9jANg8dM5yqHWTiq~lFMGFw2jfsIFVyDOpvCQmBnLMLGboZY~iIKTEg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"ce1412711f715cb783579ca93ecb79cebbaadebb": "https://s3-alpha-sig.figma.com/img/ce14/1271/1f715cb783579ca93ecb79cebbaadebb?Expires=1684713600&Signature=XyXxeJ1ML4H19D18ermtE5BpJeU2fIgWnAzLzZNPmUo-b~IFFFPT7OGBDk2BsXrR7W3sLxMs0ERw~9C2DYEwJkDEd~vLtcYfoK3Bo9GTdrsVqYvm7it0oDYpoOvgzlzpDiBdAkV4grEqv~wfVhgmTpR98CUeVLV0Z5nYCn5CdOXftS1Bt~WleIwMIUbKiJiYkhd4t7TmJKD-DpNl48~cpT1CrsaCbaar6Cw59GCexwauy2vFHn3dW7jXsQSB0-WvkXfTSvBeECshy21JCh7IPcGN1KrJAaAp40FBIZV0Aez26l2KvObmkc4I7iPW9TGC743Tj1FfR5RU~BcPeT-2og__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"b7fb0faf4eb1e3b78b1050748550feccb3b4a875": "https://s3-alpha-sig.figma.com/img/b7fb/0faf/4eb1e3b78b1050748550feccb3b4a875?Expires=1684713600&Signature=IYq8vaE~nbdSvLPvqf34Zu--Yh4Zz3wwbpLiUl7LJ~PipZaNH9E-kjYUZeqzcvebo5HL6GTjoXCdWzJ~AeIfu-~l2EWX162PkT2q~L5MBb5hEnvw9YkUdkcphL2L5Rc8zLqTv38HX~NHLb8jtGpXQgcsjaEsYoVMlzQbKX31KMOOLPhLWyBWKzInANg-~KKs5-XP8YP1TBnwNqkzGNK-dFTc2UjIBIvwrA12Na9vJk3g2O01-mFOMbapMGsgPReBfx9CrlDz96CcpS9~9zyE97e1aLBkctOJjhE1Qzs15XiAR1~lNRXKA0drjQHg99OOYCWILtPTZCAYju027hdUYw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"a86b45315d19b9f7f7d71b7cc3e482999a6fd3fd": "https://s3-alpha-sig.figma.com/img/a86b/4531/5d19b9f7f7d71b7cc3e482999a6fd3fd?Expires=1684713600&Signature=TGaCxbWiJc3bnt7eDsumVgqa022hevbkailnbVnvTGKUXeloq~tiuX-lhyCnSWUg2YUKdFdPytVrTXL-NBAwnQlLfb096nyiLYJDUp6r8vVdQml3yOuBCYuWfPFbBtVfXOwPm3n1vZwEzpXLFRm7x0ML~0lXVaJZOTxyt8DRGo4ImO6caCX5CRX0vDhRn0RpOSMcLChEG~bw2qQXKV8hTlObi-dVExfhQe4GUp10SBjyW90cHD2kMniO6tAgPjaSY5EBJi-cHYI7CS5kVuHVmAdEmbKRqV38HfheVi3PxXCGZNiCNx~C4mUpZ8d8dUzOUFq1NHi7U9JWaGyAi197dw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"9aea1e9642cdc69b21ecd65df43e4361f45aa493": "https://s3-alpha-sig.figma.com/img/9aea/1e96/42cdc69b21ecd65df43e4361f45aa493?Expires=1684713600&Signature=K~ZmzxhfqsGK1-rP1oyjuBR9XIUOwQpTD1qDFipejM-~f4GcffpImyourD54a8u5RH9w-J~MnDk5Q-HmTgbr00UeuC0TGNP2IeGRSiHnzE0cieV6wPekj~6IzxmTm-uhCJ3NYARIz7IY5JBYOlZmJeRK97OQhEmZW2pVcbgTM8tLfeetKPPbuI1aoLyEEtdl~liJauwI7sZlP0zkErlqZbYviiONZ7uMx4UKyBtmnQlnD0OOdScjvRCXygB65MlkSeCAEx7rCiSUolQi2g99h5DcJ95Wo8snFCQ0L-QbJ1VijRSmsd1BbE-3fUiGBCxm9PSNEiuLONGIiZU05rhoqQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"6566f112eab131c3c9da5a9be537a01c3a8797ea": "https://s3-alpha-sig.figma.com/img/6566/f112/eab131c3c9da5a9be537a01c3a8797ea?Expires=1684713600&Signature=JJCWb0qtHnsfxnAUghAcLFlFrEftRjLWiByymahsuoK2Bk8ulQQG~XpZkXhceqwq-KCFgrpsY~2jZbRaZVbPDw2FfFdQf2s3Q1V1bGhplnK4tZOKlxIxLta66HzFKIa~xFIxB1pcLfIGli4yKZVwqNIW4Jjj8SAZykRoegBHZ0hUIAdnDiywBhF-GGVxPV6e8M0Ij2HWW6yQ24vFSpr4jr4Yb8kJTLvU903EH5In1LZMJrfjiAkI7dURn2kR~1na9WevK~oSDClgoe~O5rlN1WNh~R6lr~eFqUQRGLlK6~T8jcN-pzeM~XPqyXfwR2xrKCD7hl-YUtyKREIh1Jmmlg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"99e10dfd026fc4e843cc18615e00f12524a1a665": "https://s3-alpha-sig.figma.com/img/99e1/0dfd/026fc4e843cc18615e00f12524a1a665?Expires=1684713600&Signature=kfgUiGg2oY-Xuld~-r31SkxGrAcqSqRHH5Ku4xXxei~uBFhgtaWPa1SI5h9vrkNmXIeEL9UkCCCZg0cwQFPJRnm4iIH3JgnhZ2Yd6PAuVBei~kbJ8TTbC~Qw4289437mtgzDUfnxcKqtxgGjpuYlHu0-GsnStpK40Zamt~k6q2zFuzU4HxWPPoIqj-kTF2yj~6l7fWjJrStwXIqOTjamp8VwjKNcyFqReWc~-gODOJca7PfY63mjNI18S1H1gDVqfuDoBsNARiT3vCQNx0FI0eoQGwk8SBkbd65I5oBsBQGMFhVUh0deNA2RZeb8aEXOV1udZEBusRbal76-YhmX7A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"809327cc4ccfc84bfe907d1505880ac66c8d8d6d": "https://s3-alpha-sig.figma.com/img/8093/27cc/4ccfc84bfe907d1505880ac66c8d8d6d?Expires=1684713600&Signature=TzINPrwpYekDgu~ePBpKpWhcjzmQy2QZ4XnQTksI~ih23PQ8CkRZ9bUeNiUeUN5VCKjuv~Ou7XMVHE7sUq7z8GcEynKXLjoIHRVfOPe8Sw2utRaTO4Wzh3EYtYLeb3hreVWK1X1XNMPN5HRPGPjQDWtrFJgVpDn5i~XkNHgX5rYnb9hW0WtORlBLYzhfg~raEG2oBIO2tjNYgOYFFuUZ79rrBV8gWRhAx25dVmSfCQYmqacKyucuiO5~JOCSlYlW4gnfLpsCe9BSErxZFLotAAHy1txzY3H~LWZCqVR6AiQxmAKVVdDtAsgOs-ALT~pQWX8rAYhLy-fMEWVvzM-0pQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"fde83acbfd12f6f25cd6f04b3d7716581df8a0cb": "https://s3-alpha-sig.figma.com/img/fde8/3acb/fd12f6f25cd6f04b3d7716581df8a0cb?Expires=1684713600&Signature=EUePbDzxt12bIhq1NO~dzc-QestyqFdZWlgSCJA0yBvdQRjyoFTGJalc-v~ARSLgXX6VvSSWOENaGEQmPlYzFF36ml04m6TxyIMc8EncHc7N-a9QWzneXzDhjGBT8rZpHVyOF~jGvqk-7GWJ-3Wt0gz50B~xq8~Z9y-VaVVFLZs1u7mNCb7mOKwhj0CWP1nCpeF52OWAPSRBeInsQpfdQbJ9ghQzJyAT7rP55PlITt4Q5nS5xyJstQvfnaa71TKzkCtJLf3N60xfVvxf9xNKEcCSS5pNB-AELFNEmqgCJwzjl-TjEONWvQrnXS4WlGXLbuEu~RWV3sNpy77TGRDGFw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"ca6f4c24a4915546798ba69b038223fd4fb92fe9": "https://s3-alpha-sig.figma.com/img/ca6f/4c24/a4915546798ba69b038223fd4fb92fe9?Expires=1684713600&Signature=M2vswYTMqq1cHGldWZm7lZQ8sXaxuRLI71kLCP5KOfHI-IzlrALSQzylMKFZK5EqvmL7FICR9-c75icohlWGHMHyz43eoHGspG6m0Ez3LQlkJlzFmwUQsA94SeN0xVVw8yKhGDEI0FgJs1ztGS90VjeH~~WXfl~h54texA4xN8AipqVGPjJfPV-8psgmQEyz9-Y4ttcMXFN-Wig8K-r3E7dZ7JGZqyfjZJfPbF51dy7psCR2fNFAErDaPJS5mljrAv1eU2DXkZsqCUle~2Om8FTT9OaAxmaQzqviFqtiT31UVovPzZw2mpWQWIFk2it2T0phHp6WbpDIFVJo3QQA-A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"3ef8f6b25bb13e376257b3e7506685019613f506": "https://s3-alpha-sig.figma.com/img/3ef8/f6b2/5bb13e376257b3e7506685019613f506?Expires=1684713600&Signature=D4W3JZZas-3Wv~jnoJobiTHqvkc0YCo5YbKFacJ8hfbPyWjiFSOk-5PzSV-nlumOINKtm2JY5yyrJJq9yZak7vS~71KOK18FzgdXkZrsq47FkIHsyrCkXPbFk3R4mVHRYpGaXN5eTaAxit15L9Z06ChjAnCzgE4RweVr0WmT1QM0IpypcUYu~qUjxjEOEbET2SRWNUolfSdBUTCvSgGw7N2HK4FZbts2rPnYWvrhYGa82Kq0aVMdeprHiNErvhDNusHSsaA1jJiEUTNWnJ-eShBJvI9lWhxOeY9iFYXb1gDn-LPOIQBKaKpOIzgFmI9L8lM~WXQNaIn0ZX1ihzjyjA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"cc707afdae4fabcbbcd70b0978e59e88177bc47b": "https://s3-alpha-sig.figma.com/img/cc70/7afd/ae4fabcbbcd70b0978e59e88177bc47b?Expires=1684713600&Signature=JMpRWYtheQUq0mCOpWfVVBjwGPABajFNSflmEZpUiN8dJvyxHcyRJHjLaHOLxzlv~ZU6eFeO13-MdgW0bRsmiQ-Xla47-AkX3cXOS9QQMBFVssTtaZkSAZhhfLR6kf9IP4Ixy1UmgTM4Yj9WaUmLknl5D3da0AL2WcX~2DQD0LRY51c8C0jmE2I~lnDJaYkoh8dETfA-TONYXqvp2qv~Gz~P82oz6xI3daT~6BG64NzqtP9eXoi~Fl90~fe61fi9VqM3gqXM9m-S0gQU3ewrJ6N-~uwE5hpY9YDrJ3bhf7185m3WW2HCYJ-iboJ~4--Ud8w4WmUE9pUaCKaaRKTt6Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"52f215c534afa4c5b299c2e57dd4987a6997350d": "https://s3-alpha-sig.figma.com/img/52f2/15c5/34afa4c5b299c2e57dd4987a6997350d?Expires=1684713600&Signature=Y2GmQoY5VegQf3KwAi1FO6vrHyxwzkNjsuzsrUop0Eq0fzlrgA23-cXW-b1Kp9-h5xS5Es7SW~WF3INJdUxAXj6ofwRBw3nXtnRD61Xdv26IW4jGBV3NtmG092g6iGWzo8pWhuo4Ihf0blWT~kYV709hZj02rkeSRlgiu0C6vbJAeVO-oCd3liitQ4P6q~X3RuN2uhmYTqYkDI0fgmes0gEjt5iwgninHLa96sx~1N-G1F-ep-drz3Z8XTCT5OEqBAtIcGI~Hsly689E3CO4hWwRIJJKQGGuMkB49e~L8halTSn1G4j25brU5GVsd8SN0mdV0ZZL0wksR5msZFAGUA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"f8eafb9e9787e14159493fd6288ca283de911112": "https://s3-alpha-sig.figma.com/img/f8ea/fb9e/9787e14159493fd6288ca283de911112?Expires=1684713600&Signature=Ecpl889-rdlSeEJh7E0F1Sf1WjHvxrPQDWVOc1aEBF~tMAn8K9ykcbudp-DKzYgCHgNvgNzLRrSwV92OyXc417D4ycqaFI6pOsI~Qb6ckbZkVjq3Drfb5zUY6EUwerTdA40fywadR-CuFMWDeipWgEHkmhpFysWPfNy2LN0xswLl1ZzmAwbh7eiUpJzx0tWG-g~3gpr2DAeb1PnMqK1sQeVnmK5xGobkflmRov9ZJMgZcinQDL2nWQMA25sYVDuKvOaN10IoCqggos9GdD-VsLdXfeKWHovYrS9MD-CVLZwwO5miGsb7xmHl34f3KPgRRE3-r0CTE4vR7jOLAboP3g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"79b3324ddd7fa7a7d7afeadabe3f1954a04fc48e": "https://s3-alpha-sig.figma.com/img/79b3/324d/dd7fa7a7d7afeadabe3f1954a04fc48e?Expires=1684713600&Signature=PBshIzaLh6EjGoRJm1ReRVY2v3fa3ehdAPQeBRCwoifiPE3jbQofDKd50-rUpkXbOMo5SQy-2zUEYKj8qrGtLiq~ycbg-FAREtB7tEgtb3THBtUKDLcGbvH3s4gs95PSWGzyapNZFlXlyzBLcGIeSW0gB5Iq0V8d6o6dB25HQngwF6I6CrHuzr9qEFwHFLJi~bF3frt-aOc096IkXHIf~2vjtWDhILZ4gOOt5d1wXF~RVtpcpPPvzCDpQgoPj9C60gUPqlZVdBqM1zUKDs96E6ZA3M2P1XgLzd26bK22-qQy~Qb9ODMSRgDlrax7Z6QnoVAKIzmpXyqUev2UgCWQzQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"a07fa4d4d49ac1b5a80cd7a98eccffe248d3d18d": "https://s3-alpha-sig.figma.com/img/a07f/a4d4/d49ac1b5a80cd7a98eccffe248d3d18d?Expires=1684713600&Signature=YtgPclEuU1DC~msXJphLUzlQG7DKKZSQO3UaYVRUKBEEUqdqx9WZHVG8itFOMk5GaLrBjgwXw4X4JwP3CACy2qxAROoRTaP2nb5zw3XFXofc-GZVzioJBW5iDZQXP7BzPH0sSlSWfykv-0VtrZpukNIlVhZ9Ykpn1n4KSyYJT2sZK3NpH612euvcNfF85clzqNFxnQRENWFa3EsNm2XaiLo~nndYhNKt8BGYJjXLmwUxDVw8LsKnfrQaeEq9rO0n7S6e2yElmMYaZs~mM0buL0K7XXe9YSz~GO~XR6xsJ2r4SPzHD03~YkUDaEWSXsgOQZssF3wKgO6xvRBE5nL7LA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"f3ee73944277fe58417d788f13428b4cb952ae81": "https://s3-alpha-sig.figma.com/img/f3ee/7394/4277fe58417d788f13428b4cb952ae81?Expires=1684713600&Signature=A1q8moIutuRT9RF9X6B9jyhgWNQ-z04UwOlURkRjsCCf6YObln59QkGsiUl9~XEehUMNWO4KOJBPnOJpylo4SoLL4dngofCzGguM6ehBrm6MADwkxcipIQ9ozivBRiETdoSF9cx8bsjkk5v-7LfI-kXyK8lIoTgzFonao46sEhHXk4VDfLqbn2FwpVHb2bGdChzT8kYiBAPpyayalc7Egx14W7UD02QIhmdBi2eCXcA9wmah2E23io9GjWvhM7XQEFyplkhppWhf3RcOGK339laGDeAGwpzIWaPl40r2u4WWbHvS00tqRZmRcn0lEDFbBImO49ws8dPAz0mHa8FDtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"18617d1e39996296a1fac41a6c7b9bb014bf8ea8": "https://s3-alpha-sig.figma.com/img/1861/7d1e/39996296a1fac41a6c7b9bb014bf8ea8?Expires=1684713600&Signature=Tjg7Cj859uoueGeSXNsgK-bemUC~hjkvoKBEsb5ZyR8GSRvRid4yJQLwVRmfY9trjYX7rkBxBnRdy4yM7d-sC2SlchV7lWXffaQ0hd6Z9p8-1pb7KsgamnKr8Z9l88O8h~zzd9z20EirVlWYzBuNUoHQL5WPf-j9X2R3drQHnjJjGlVgGif7T9kb5METppNqcMXGYQGW2wjtJmfrr8AyNjdESepPTL9slfvcEQDpjnqM1Z0TALaMEj1QmRXd6QBxCUZQOi3BYQ8UDkTuzYq-h0J2i05jGkO8Myav4jD11Pz7Sg~zl2ubZkVW5vRBVJS3V1OLGe1Wg5YE~uY3ADRB6A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"d6486cd7f23171baafbc4c18eccb1c749a8cf0e7": "https://s3-alpha-sig.figma.com/img/d648/6cd7/f23171baafbc4c18eccb1c749a8cf0e7?Expires=1684713600&Signature=kRWWJitu2YkiWCuIrp~h-h18Dyqh~fwLuqDLqSMlVJjz~AMA2FbqyUFI3G74io~jt4nezMhlvY-ytylZPkH90PxHIAdr9ZGTG7Za3Bshfvk2LcRHnAd98osvIXXSJD5iMLQi-1Fr4m7YKdztm~xL5f4s5oNEqTjovKXyDcyZt5tcWQPE0ACA8RlZwKgHrn-C~yrPyrb6wHhr-Mbitlq9N42Cxd1vA~A-vAHclRb2DffFU-SEofYuELtcsIXRBqiub46qgl9Dbf6u06mvWWAjuotu4-DBUY5Pp8Sp15oz5LkBPEwso-UIUCCcPDqAqlRdIb51J5fgjlIYzrxHalrZww__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"111239b9d0d9405d30f40a21a0ee7890fb34b417": "https://s3-alpha-sig.figma.com/img/1112/39b9/d0d9405d30f40a21a0ee7890fb34b417?Expires=1684713600&Signature=oB~dIKSZ4cssgaB6nEbxwlwHZ2et~T7pqWnlY8nEAGpC8CW2Lv7h6Mp-OMp95I6-9c5ogkBuqZW3mQFgKW1oHkL3-7XyTPTLA8bzNgVQgGU9-fCN82F6VuSzLBJuxjHw7bihNMVLwIcqBePsq~teE5HXe63nyHz-9miuCOB9lNSwdtIhED5RUj1-tTuBjN1HWND9I2oqug0S4iHSt6ow3J8MT3LT32Cx6gUMBnVPnWDwAcGg3ff4GdoOcE-06mINBUELBbzHtjMQ5Ab5PRHjdMMqIMe1sXPNKDNOXvoOY5mWSSaGxI12qur6NpMYWF7lnQSR3GBlCKw3jXMJ~XDRzQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"8afa17694b4b5320930847d2de5baed5d6007df3": "https://s3-alpha-sig.figma.com/img/8afa/1769/4b4b5320930847d2de5baed5d6007df3?Expires=1684713600&Signature=FWKiKRTbWi~Qcu5Mye0B0lJJyprHrDcrRJLv33N1sKoeEWT3VMHkNu2EYDrFrt5xX8Wb1ztuXVdehSIWYpu0qLrKPSEZ9GX37neTiC1GxsCaoKWEoJsEZ2V9yWVfDCl4SHvuqPswnXR7T4BJ4VXqEDUt7DGpmo5QpFhr838pxT~sqshKjPKpRVLaXg0~VZ7FQSXuA0jFXaxvvJt-HNPDXhXP55jZqdOrwOoJ66BP17a2b9my2~Wxy1r3xmJurNUZesyGKk3eyC7HxsYpazJvpZcDjDOylEzStTp8UlAUILDukICaqfkfwJW~IZQRfprN7VSrEDc-uyJ8r8JDtmBseg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"e680befd565e5b3e145cd7cb225566e5e7ff02b9": "https://s3-alpha-sig.figma.com/img/e680/befd/565e5b3e145cd7cb225566e5e7ff02b9?Expires=1684713600&Signature=pVOliBoNwH5H3Wnn8mjbyrKyT-S7QA0GOBTlc9KDAjPoX4V7arz1vAvhA6Xjl~tA9daKqbmEMbZfaPke0nsYm51bhuOS2Zwuvc478Wp~pSphl-s7YTDk-0tHcdCiysUh4KhVaxhEF91MTBwg0TEX2LW7fb28-f7aVfTuFIjvizInXwsJfAP9y2uJQxaZ--0QA7L6ZSQzBi0nRmJPZ3-smpYa3cjNwKxUot~H3r8CEDU3YippnbSojsUg-nHFF56cUWWXkTNcqS1JW7NPoTeSCU-YCb6~1u8z1l7X51XhcqBS928BTnC7jeiiGF65Be1tT~ROVBMK6sIwmPWVXAKc4A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"4abb64f25777465dce954639cb02e57148a0996d": "https://s3-alpha-sig.figma.com/img/4abb/64f2/5777465dce954639cb02e57148a0996d?Expires=1684713600&Signature=mtcXUwDqQtoCF7ZVOflHYDmxonTNi5lOShZXQ4dU6aqIGsWYNxXw3EU5qaqsWaAfOJuTkm44~nfZCc0YRzX85M9HsgqrCFPNpJHn1K8Wf9k3sY4VkOCUnUkXqO847JXd8lXKhAnmVVv6dHjdsNAgMV28T0us-K6M-4OGGVUV9VlCDGqBpwoo3RJaM47h9SuEfPA87XGrVr9DGc6GlGD7KrQZVKVj6q17v1i2u03skbIFI~naVG0CKHHU1GE3RHCYmTpr8DaDhxAy3mjLy4bHKbYlwhcAppiiV2OtAPNaP8d84Jwk7mFgJzujftPeTx25wLxZjl4Iihu9FYprUfjXjw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"ed0e283f167eb7ffae5e2ce9cc49c526b4034256": "https://s3-alpha-sig.figma.com/img/ed0e/283f/167eb7ffae5e2ce9cc49c526b4034256?Expires=1684713600&Signature=b2G06EJ7XAPWSwpMpPZ~iBglC0GjgPh9STWWgH4x7fgik0~TR1xuGo4Eq--LDlN01lT4WCxT7civik-W31JDxU4yV4aEEN3~jh9C1Xikgf8~T3KPybfaTyXNl25h-V6laIPGAajFJo9~KY1fWkoeBS6n0TONa-cb0~iAW566STLHf9M~eyhGJ21n14WJyi53w-OC9cIQtPy~-SXwh6hNQlp4mu0lK0GksZ5QjvMv86j8dcs87JndYm8fix7MtQreQhAlp~3NQrv~q027YsBhpx-X32Y4VBMTeApW4TJOTRz-wEWHeW49x5daKH3uhI5xALXgjZ6XKAOytQs8h37Rxg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"e8c39f6aeed0beb7203a2678accef8fa7ffa3922": "https://s3-alpha-sig.figma.com/img/e8c3/9f6a/eed0beb7203a2678accef8fa7ffa3922?Expires=1684713600&Signature=ZbLJQih2XCQcbJ5q4BRVDdlii-TXYqCwUVqp0tnG3l3zBUEYeSGlrIUJIPRMUxW0lbm0bbTFGBQpIIuLpXvYoBLNc261YZ0zNXE3EfwS19gZixtG0e2qzyRjqjJcCmQR7Y9Tyq67rrEIC1~fsumQtLqJhFlmzhJKBlSABLC4jksdee1R3nQNWZLUFDiJ4kFvLIDZpbjP00dJifGf1yeZ9DWpd-qppAqq69xxvTKf3SE4RntQROGuV2ObBPBdj2w6QBsmbRQRwP0hOch4SFmR6GuLzGLTcQs37MEs8thO-FrHi6njDHtqZbrQnZeAan6A1pIqHCwqDkYNLZnigjJY-A__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"63bb6e537169205a026fb531f9500ba867570929": "https://s3-alpha-sig.figma.com/img/63bb/6e53/7169205a026fb531f9500ba867570929?Expires=1684713600&Signature=Cszjzpx1bzQ4vQjy5Gh5Vd5q~xFwS7vaWCV9pb6v~DYM~xONzPbmW9~vddB5W-EJmHY4BnMDjjju2YVaFX4~udOl024Y89TOSRaKB7OAqpL4WgE~SUBIMnG4xBAyCvo7zEvhbjY1-vRceokFR~B~NhiPLssYNwzyRMhcKzJcHUgVtvTeEiT0Z8qR~7rsIyr3OFBlxLTvAHvdnnwMbx00ohbY9zY~Inko9LHnajmOQ8XWLcgbMTku1I0uHLdcicPlbJ2TFBS42czCWzZqMXihr6Io1C8RfVfZA0MCJd2Ox6HSOvtFzHqRDB~-elwdwasOHGiOqsEzN5UKmYHIzgM-gA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"e40d229d71340cbae2a39f7deaf402430d529bd3": "https://s3-alpha-sig.figma.com/img/e40d/229d/71340cbae2a39f7deaf402430d529bd3?Expires=1684713600&Signature=G~v0QKjRvJqU1HfWe~8xDYJUVmJuQaQZZ~Z~T2SDFnJ8hsKk1dEKmDYknWIkLRcuGKyUw4rYVsvEwNINH23GDGvOjDgtKBzt~l2MSEr3yZ-C4K2bgOSSpPPXoKjsio-2h5uY-oH16zJBeFort~5jN-fJrHmXLH5UPVLr7Ixhu-2ZqBoUsZM2vZSCWSScykoEK~82N3xM6-UwWKbs13QfpiMgVs5Rha~h~E-qN5pRvUIcMfTDDBMI3txGFgvqkqVwo3UiyC-9xHDu27~gXbbomz-zlGrNxbbv8a7kGC1Si4Z4oU3UzCeCInWO1I0BiH6vVhy3YAZReDk~pD7SNai48Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"eb41c7492ab8b67ace1616ff6414bb038dff9880": "https://s3-alpha-sig.figma.com/img/eb41/c749/2ab8b67ace1616ff6414bb038dff9880?Expires=1684713600&Signature=CvaQv0qdsuYszoWcae-lAvYM8~mGEdAPGR00bj1MC2v8fAUyuwqq~wNjheQuGjRUXt66EJubWB4QUMIgkXKdrFnV01s6Um-uc5E4gEqoefENNMLdoAcHipwofKpCTIwuBIKdtbciR1k1tqJ4BBorLpVMqk8A4X88gxDrAiMz~CkhLRtkRSseI9jBJXNS9AC4QcMFd4WQ~SFs3TNXDHe5KKZ6QnJyWdRywChAdPiGMx6WNdnHFz~Wg9GC-cqSdiFbb2qrOmiX3kAn~lMFnvpS9PjiBC1TAEiMFMy6rwDoioXVyny4iEbjh7cqGEKwZCBzMXZ7FTrnPaHbXEuABnvV8w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"76ca4a99b8d52e0a9b8443d84a1dbfc6879b19a6": "https://s3-alpha-sig.figma.com/img/76ca/4a99/b8d52e0a9b8443d84a1dbfc6879b19a6?Expires=1684713600&Signature=ZkiKt6FiAOuQr~xUXp4kDSzu~p4dcKIQg6FS4MmlKRhMsvVY9rJnBGqY3PT88GwJmwfopiEd6VhwJDVe3gQUO9S3qKyZa~bzJtoXwZFgEg3DwD2ij9GQNMc7eLFhTa27nAn8VDbPc4rpDfOOQasbXZC0GigT5XEGXiRaC65dJpb5yVOVXS4xBR36o8d7B9FBq2PzdpHjXFzmic2-gVAia0PxSF2RemAiLIT4Tkfhd8Su46wQCK4BmWxBV1x8ZVJy~ugGQuiRbtI5IKrukhLsGYYLAeqs1PTWp0nadsT6BMX5jXJ5puyns7QM0iuxieNCWJxk0BBwOQKHm1TnQnEy5w__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"3981972dd25b17020fdbb7aa1e58b1732a653db4": "https://s3-alpha-sig.figma.com/img/3981/972d/d25b17020fdbb7aa1e58b1732a653db4?Expires=1684713600&Signature=TCxRzomCDecs6OxZHTeddZBloLzmuJK2lNS99ywWDRD5qdD3OeQ06U6m93dTYF21WnFx-HfWKJQfM0CiSc9qKH3K8QcPey0p9hDVaTXT2fTB56P3ftErVGAw4ShQdoOOGtCqHHFjcxBT8YpT-nqROWD3zwnJJlv-mFUlJBfZQMZUSliJYmeq7AlD350l2wM7kHBTToGlu~3GnPLaFy1DRauahXw5di58~20vZelMub1ULUksedvWwX2N8H3HTidEzrkaPV4RfaLbx1BKY~9YLX4gsmxR5EImGnfCzT6RuygN8~z4zhSpMgzuwzmN79ciBp4XSrHhXVkKbUczYBhLqg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"df22d06ffaeadbb7fa1fa4a867d0d8c61792c33c": "https://s3-alpha-sig.figma.com/img/df22/d06f/faeadbb7fa1fa4a867d0d8c61792c33c?Expires=1684713600&Signature=b6QNjz-Bs2SMyO6j3yy6N1wtqaEE934EtObDx6q-can4mnqM5nNu1HYR9yp3V0GPk3PB3t1r1Poq~yOlt-s2OUqd~IPDUybnwpAPIqzzCK4MBfKrEyDwMrVTc3DyIcYLdOlcT8vEtMbfqXOZDuvNPIKE594-Hi~pjHOOz9dzEVJuzyBHxdYltKc-zpcPpYfgF0W1urltrrDCKTut~jbfcMlnp0XmUlOiC~M7w~swCCAlzp5szFatisoJvuclDlmKw9OhEKYCbADqNheXUsrSmkL3KN5xPiQnSNlnxZCk6SR7OiBjyemSOG0HEe47ZanLmXSsky-AEcQcbR05SttpCw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"720fce9d931d71141bde531061093c03659d1969": "https://s3-alpha-sig.figma.com/img/720f/ce9d/931d71141bde531061093c03659d1969?Expires=1684713600&Signature=AomcIfYKs5JgOe5Bq9JTJB-Zwrk9SpHDnO3tf3vQnz0sv2HPVUKic2ZzsMgygBR2iTBxSR7hcCg~ahqlys~WyR7iRNmauG-Nw1G4JRrBXKzn57E3Sanfos5hr0QvhLX7X4WQZtwWIgmRYGW8d6Ru1A6gogl2rh2QFitMAris-LtXLKZ6du0I6bOzZDuguZZH7diTUfbmKsiufDgqiWLwOXOAQUUqw1RyVENPA-wxkdfJ43RaM5yW3eamm9lNwEzeGpdSOVP9j9Tu8axTd6vhmSvkc1G0GW5xpk6NpOxkiVAUT2NTcHb3OqhF8G0pa~XtjoEaIexzH3aLiquVd7ZpDQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"bbdc1e97d0d3894456bd8d286957dd777d74a324": "https://s3-alpha-sig.figma.com/img/bbdc/1e97/d0d3894456bd8d286957dd777d74a324?Expires=1684713600&Signature=hBfCm8th2QvR1IdnLb4BjB3~JSWMrSX84dMgN~~kjTy4GsUntWHg6O~5-bIU4aCIkwR6jNt5Vy8VLE-4yMhZcljGfn5GLH1b4NahYwmTbOSvrHO1bMpUEzRwXj7GqnbTIsmdldvfZU5XWdFrZGVQgooNBYn5qxSrG~keJd3ppPs5EkYGnkUZamb4C0ndovuePToltddyuSWhlP1uvf1W0ZhBkYRAmOtMQJrEL55BDoPVEibAQaBEn4vr6tvEm~iUF64fza4bvQMV5qgz0aaAkMn4GyKSHmWikH-buMjmQxQP86hALL0RuyFygi6LWTc5W1MYpabMaOUDjJcdkhR2Qg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"125950a856dfb010616ec75dd9da2341f48dcde1": "https://s3-alpha-sig.figma.com/img/1259/50a8/56dfb010616ec75dd9da2341f48dcde1?Expires=1684713600&Signature=aoQlhxeEUbCtT2m1XupVZPVWS9dtf0s9R8xVf0mSnhWroYuFLNISnyjZR0VudbiX1Gg4kJ7G53xKw3~VCmVpHfxp7PfMRAUIAabqOYn0TaR5eMRZHHmQkhfkAC6W2J9ldsLXRpMIv8316kUMYTcXfAFOAPlfT08ar0x2bGhQHzTzm6FDvVGRwcM1bq7WSmHptWg~DqapaFIUZe73tfJX4ZVZr4pimnHXLgD~S5H9p5hHdKNWhVbTKoJg7NMuGL8kQLQ-G13HA7Ao8daE2Q-il2SQKotziieWyNTY0egqTGfn7-nGk8jxpg4H9jYy0ZaYLCSzuQCc~Mlz3PHAECkVNw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"793a3596586798ba5e7521f0d29e9bef847b5e89": "https://s3-alpha-sig.figma.com/img/793a/3596/586798ba5e7521f0d29e9bef847b5e89?Expires=1684713600&Signature=UyM6NfcfYNAZ-tdrJcZYxgcL3UR5rVLDYKJZ2hWpx010vOntebTvUzOuWfSL5paKvsGWaz~JkuyuTfq-3KjI0JK0iupPwax6ABRAT~WoKCVf5UhdBxcEg7~os3cKNZohkzcB~4Wt7O0rKBt8YdF-FQljND95zgOXQw0xfSA2P26vi-0EOE3qVlNpjXDPJ6Y9TtxbqomqsPWLKfrnCrPmuzeXnzoC444S~s0irqBROARKITqFBej5KsrjuBm095MMOwvVZJSDxxlQuH3TiBscnhK1scK60V0Drj-mcbkYtYTXN~2yPDNBzZc7wq3F3wGITY~IYKTjmWz5Zl83gCGxNw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"9f4b75f252e17e1b5d3cb5ab9777ace93dd21818": "https://s3-alpha-sig.figma.com/img/9f4b/75f2/52e17e1b5d3cb5ab9777ace93dd21818?Expires=1684713600&Signature=icfDkhpcpg0Zru34U707tNwf-ilCQEOXUAyuP3zkwOkSM4v40fmLJMRPeowrWsU0bWeQ5cCiD9Si3zxAc0iNhhxU4SQUEGH4vy4MEvyfJehPn2R-z2h1DZPbuNQxEgtLYJL~ZEW5h46ytMrUsORU~cxK9ZWLw2USPVIvtffD7El6mIz0t80Jeikz0JGucjTissLRbRVuFVMHJckh-WynDb-ulwpESNihDQ47ibnlBX9vkjLXOnTqIWdAZnLOxcPGOva5Cc4ubbyQXyZdX8wuRiON6MF0jMCo8xpAKFa1B6v2RmBUnORYwHRMm40OmE~Ag5rGIb86C5YsdxSYW8uuGg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"105b224e65cfba12802bc8e0b5b405ca0b8254cf": "https://s3-alpha-sig.figma.com/img/105b/224e/65cfba12802bc8e0b5b405ca0b8254cf?Expires=1684713600&Signature=G0zi3AX4Y4NctVoZXRxJUDt32bvbt2ZUWOzt4TitDKummVBiaOhcG8xBsGNtWBdNdjT5sFx0bE5G~FvS5Zr3yH8XJ5sMsMdsAxwNskoOHMmQaP2ZNIi0dHYU~L9yrMwmboibdRCL9ipKHlTXezYry9DuD~FQhsNTGSX1nyvCDTwZA43iPQ2dbOUqg7VvQNLS5Dk~VymaJ~J~Yub6yk-sMIK9RLusqZy97aiZ403B653HbBpCGcRsRnmvuqEsjBHJzqisir6JqEklxK-5UJuI21HCXiRFFGxH6rlI84mGuW-Px3~fM8GE7tlWz1baGfaITa9VhNOIMgYOd4-LHUhXGw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"9eccd89f9b49ca44b566af20e27b5689aace885b": "https://s3-alpha-sig.figma.com/img/9ecc/d89f/9b49ca44b566af20e27b5689aace885b?Expires=1684713600&Signature=keG9LaGimEClt4m3N60Byek0zU4j7biyWrJAi6bK~sweu-vmXNm5fROVGIkgyZu~Pd0x5WOUkMLyHFu2RqnJhxUPuHuc06qAYrPS6tcA05N2UdeC-VuCwuz~cRf3FTGMat8q20DHGYRHEqiURJplElypO0rQ6H8FGedopSy87ZjhT8rXFLpEEyQUvbqZPFuL3jBkpxeoFa0JBNlsD0fIGNVN8UU2cjl5Fgo2EiISleHpoDp6K3p1EVbmQ5E4ueBvgNnkcEjenKg9MRh-cM0etz9TTh3ED9g~pnCXNeQXYxm7F7xL6-UBk7SxIkOsbaNl1oM4~ihuEgH3-Hvvq0sPbA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"5b8270ba95cf1fa8bb71c84122aecc3a52e287b1": "https://s3-alpha-sig.figma.com/img/5b82/70ba/95cf1fa8bb71c84122aecc3a52e287b1?Expires=1684713600&Signature=Dugg6~G7J9NnNZ9KpVxfNO3Hbh21Fv579xnhJ3HwxN-0nxvjr3PPU14F8FKJ-DW-saJDDIv-eCELUe6p6NEMtZ7jE~PTOum6ucbtOAQhG7YOs1GWI9JCG~YE0fQRcu~CnMtSUiEZu087e4W6a3R18t2VUVr7zLsZ2mEgyxjV1Tg-GQ6T1ngYwOAt14ru-iYZsrIZjoMtt6mx8HPklKzBsZ-rppE2~QzqvByLZKEGJJNEsHOwxPu0e-Wy9a2FTt3jm7gS-UDR2DlpKIIb3K75ENb22FTtY24qDliQJfDbODUXPpv89LhVopLjhNjHPBjIZzvhzRWyCqX2A1AEgzvxQA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"523bbbd97ed334c4ffc883e5cfb7de251affd5d8": "https://s3-alpha-sig.figma.com/img/523b/bbd9/7ed334c4ffc883e5cfb7de251affd5d8?Expires=1684713600&Signature=fYWyOpnyCPE8NxEBWA5DB33gfLEgHHXo00DCkjUIpvGDcSSWvZwAWu25tcFjukd9Spu7xobLFXruYc37A~PbU1b8iUbE~NaP3mJ48tQYtnXX9T8woGAkaXerauouSB80GvSFJNr~3Rj6~8ac-lvy1FSgSeAWaxsNhkngJ9IuymwZ6UfpylbTB39NQVq8AMu7DvJEZSiCDK7heYMFQmqM6pn3Oe7FdLs2dVaYyBCBT~KPbNZtZlqYRkWhT8Pu3G6iu6JZrdLEHPbA3yVSeME8hokyNzlVdAuBRyyJVGpvu2smDNUAfglI9uHtT1KDhs2aKiTX7fywdyZh-QExXGGskg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"1c993d59d9d78aba481014a144fc33002de173f6": "https://s3-alpha-sig.figma.com/img/1c99/3d59/d9d78aba481014a144fc33002de173f6?Expires=1684713600&Signature=CQroS0fNm5Up8EgXUoa9FLddQapv1j6FrVzxIAsdFrWAoqJNSnOzfsW5bSTmwasunufo5YkjUAJVQ1rQReYQjjohS6sJ1brWXAQE~8uvPt71pD025ezNvItGcu7W9V9jWzuso8VrRZ668Qd3VQGow9SgJk7byBE3~UQvGY8p~Ih41wY0iwbwPbDT-1-JDkuRWv9siaGS~j28n7yu-r3iUULCpadkOO~fKX93yoP8MYOYHlFx0dMiPQ1WZjun2E~~sVN1xkfjJufCGyPyPXekfOe13GBJph4Y9qQ4K4BazKHG7cRX9v~a4jq1-ZwKPnbjwsf4Hlnp2CLA9ot-ABnXqg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"4f9d042f8188c1a039cb3cbfa8da50d0aba43cfa": "https://s3-alpha-sig.figma.com/img/4f9d/042f/8188c1a039cb3cbfa8da50d0aba43cfa?Expires=1684713600&Signature=Ah4iezTzXmnOmhaGEv54mjq4OfdrEldlpMjrq1fzK3pH7RbPNL55WHryoG1RsPI4AUHScyXqpXMQQuA6458WYh7Fq2JSrWur8yA5S86A~BFCOBEdIt8z7y9o-Zczf4BobGIF6dgHcUTg5~7jXWfgEzLnp-qm-T~CB8m5dSAvKtZDVFGGo5H7ypYTdeAMw74PHuhDomOfxIMUkckZp4X03v3zwmbvgjs8NODPJerltZPttTswo3rnU7Mk2o42zXElIdl~rPzT3lCKPsMFVXTM22SSr4mANw4s~EZK0ZVHvv2uZHd3V5OMiSePnj9gVnVFJjifZTNFxW~l1NfSMb2xVw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"25c77c70d6bacda98099b5a01762eedcc8ae25b4": "https://s3-alpha-sig.figma.com/img/25c7/7c70/d6bacda98099b5a01762eedcc8ae25b4?Expires=1684713600&Signature=BfB39oRG8DUE8-BjA5H0UvQKxnulDod0PBJc4Yq0alJzsPpdwKinYH6SC6Pel71fq9qOfdc-G2wBceAjXczC1KqX3hEQ~Uet2uSAR~-Qce3Mrx196mGauoOhKtzuczrGxBVC9cm8S32lmpCEB-1IKPbpnrigETR7urhPWV38uWFXHEu69kZo~64MN2loJAp7BIbsfZdD8i3zzOeEfoHaxVjQNhVxXLrzapUcG4Laj2owq9Jf~DzXx-G8HEJ1R-lfyOhnlhVCtHqhgSn3~TnchbhHLeT6EkHRs8ZGl6tkslcINim~ImVSbqHeEnHoVivsyvJwiTnIkovth2CErCvtHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"c444a123f9f8432d3ac073d7dae1ef21de1ef2b8": "https://s3-alpha-sig.figma.com/img/c444/a123/f9f8432d3ac073d7dae1ef21de1ef2b8?Expires=1684713600&Signature=Gz3eUEyHiAujUPEQCIQi-rm-11kjT5HsF81C0f91QPAxjcBpHkGqnd3pMdEo3ZMThV~k205RffNjCIv~GFvCCfBrer6A7aLRdwOKDAj97zEPTRGUryID9Ady2N0iwebP6GzoQ4Z5DaLmERyo3qMurAv~TFHUr3oazmu82pFje3IJECCeGTE90sO6O2p~ZNRYUtJTbbMI6hF3I6rDm5oPFW2wp8ZZiHsfm3eFKq-aKcCwN2YE9f8UucgP4Qn9O1rPgtNNZrkZ8n4jpNwE1NgeXe~Dk6CaISbouTLzKM5-NgwgcIgAMJd7owJKid6IXr2t-GB7OBWwgdBUL-PHvBuUtA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"be6edb16492512f4fe069dcb8d3632db75e4ed29": "https://s3-alpha-sig.figma.com/img/be6e/db16/492512f4fe069dcb8d3632db75e4ed29?Expires=1684713600&Signature=lbEkuitOaQykJN25NE5jdRfhd0HGg2hrN58QTnDtHyfmo-KLcihDAM43NuIK664sqwC-~vTgIhPCEkJe6sG~QDDLj7IH8Lpuu8gxM8Da26EmBKETMawA2pk1AYkWZefduVLS7DcheJhJouOlIMUqKkjyjnFTYrUR58gb0Nmdd6u0D~v0wmusmlTCMhp-sgfXyGL932zb9GCDC7AM-0glQxeuGXXvyUYPeACe2nrD8~ssnDae~4wvD3YFkwwf6MpzRddw3Z3rMilGtXXi5i41uJ18eZF~2n~Og8F9NDPOcUT-kgkpbVPrSd1X~gEScQ4VBe9gPD03HrBuzZZVyuacdg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4",
+		"162a7158f5ae366fd057da49540198d81469ee2c": "https://s3-alpha-sig.figma.com/img/162a/7158/f5ae366fd057da49540198d81469ee2c?Expires=1684713600&Signature=NLLYnt0FRLZjU7cnv7EcR34a3HYT-HCIgI8oGadHfyBjexZ46cQA6slJlWYO8yoa3bx-isjNzgdP2IFRAhHkiB8df2Ut1YENt9WnbAcdGoDyrcfiX3wKCoaCuv61ATdScqpoDiCvQxDNGGw2gIaKxXL~KABUBTcfd2SBc~PVUEIfii313TsI06T19zo8cPyAMOA9M7AXuE0reh5-QALfzexLk6Wwjv23yhcKzLPEaaWq99~Fq61qocv6iRNvqJU4KuXnAHxUAwI1QpQ649UdMOivrx6mGdg8ASfVoLHm3OgZFDVaEvWuzDRg66znd2EWBZJglAQl9YkLgJapaqc5Ng__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
+	}
+}
